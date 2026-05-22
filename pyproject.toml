@@ -1,13 +1,14 @@
 [tool.poetry]
 name = "mailing-service"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Сервис рассылки"
+authors = ["Ivan Glushenkov <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.14"
 django = "^6.0.4"
+python-dotenv = "^1.2.2"
 
 
 [build-system]
