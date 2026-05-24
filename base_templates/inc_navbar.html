@@ -1,0 +1,32 @@
+{% load my_tags %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <b class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-send-check-fill text-primary me-2 fs-2"></i>
+            <span class="fw-bold fs-2">Mailing Service</span>
+        </b>
+        <div class="align-content-center">
+            {% if user.is_authenticated %}
+            <b>Добро пожаловать, {{ user.email }}!</b>
+                {% if user.avatar %}
+                    <img src="{{ user.avatar | media_filter }}" class="rounded-circle"  width="30px" alt="def">
+                {% endif %}
+            {% else %}
+            <b>Добро пожаловать на сайт!</b>
+            {% endif %}
+        </div>
+        <div>
+
+            {% if user.is_authenticated %}
+            <form method="post" action="#" style="display: inline">
+                {% csrf_token %}
+                <button type="submit" class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end">Выйти</button>
+                <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Личный кабинет</a>
+            </form>
+            {% else %}
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Войти</a>
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Регистрация</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
