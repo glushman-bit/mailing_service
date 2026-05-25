@@ -7,6 +7,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "email",
+        "created_at",
     )
     exclude = ("password",)
     search_fields = ("email",)
