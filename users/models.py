@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+from django.utils import timezone
 
 
 class User(AbstractUser):
@@ -31,6 +32,10 @@ class User(AbstractUser):
         blank=True,
         null=True,
         verbose_name="Token",
+    )
+    created_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Дата создания",
     )
 
     USERNAME_FIELD = "email"

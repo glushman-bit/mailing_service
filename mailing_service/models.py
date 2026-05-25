@@ -13,11 +13,15 @@ class Recipient(models.Model):
     full_name = models.CharField(
         max_length=100,
         verbose_name="Ф.И.О.",
-        help_text="Введите Имя, Фамилию и Отчество",
+        help_text="Введите Фамилию, Имя и Отчество",
     )
     comment = models.TextField(
         verbose_name="Комментарий",
         help_text="Введите комментарий",
+    )
+    created_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Дата создания",
     )
 
     class Meta:
@@ -38,6 +42,10 @@ class Message(models.Model):
     content = models.TextField(
         verbose_name="Сообщение",
         help_text="Введите сообщение"
+    )
+    created_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Дата создания",
     )
 
     class Meta:
@@ -83,6 +91,10 @@ class Mailing(models.Model):
     recipients = models.ManyToManyField(
         Recipient,
         related_name="Сообщения",
+    )
+    created_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Дата создания",
     )
 
     class Meta:
