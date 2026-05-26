@@ -1,9 +1,8 @@
-from enum import unique
-
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from mailing_service.models import Recipient, Message, Mailing
+from mailing_service.forms import RecipientForm
 
 
 class MainPageView(TemplateView):
@@ -27,11 +26,40 @@ class MainPageView(TemplateView):
 
 
 class RecipientListView(ListView):
+    """ Класс представления списка получателей рассылки """
     model = Recipient
     template_name = "mailing_service/recipients_list.html"
     context_object_name = "page_object"
     paginate_by = 10
     ordering = ["created_at"]
+
+
+class RecipientDetailView(DetailView):
+    """ Класс представления детальной информации о получателе рассылки """
+    model = Recipient
+    template_name = "mailing_service/recipient_detail.html"
+    context_object_name = "recipient"
+    success_url = reverse_lazy("mailing_service:recipients_list")
+
+
+class RecipientCreateView(CreateView):
+    model = Recipient
+    form_class = RecipientForm
+    template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
+
+
+class RecipientUpdateView(UpdateView):
+    model = Recipient
+    form_class = RecipientForm
+    template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
+
+
+class RecipientDeleteView(DeleteView):
+    model = Recipient
+    template_name = "mailing_service/confirm_delete.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
 
 
 class MessageListView(ListView):

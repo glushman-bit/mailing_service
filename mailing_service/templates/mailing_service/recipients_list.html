@@ -5,6 +5,9 @@
 {% include 'mailing_service/includes/recipients_header.html' %}
 
 <div class="container mb-5">
+     <a class="btn btn-sm btn-outline-primary mb-lg-4" href="{% url 'mailing_service:recipient_create' %}">
+        <i class="bi bi-person-plus-fill me-1 fs-6"> Добавить клиента (получателя рассылки)</i>
+    </a>
     <div class="card shadow-sm border-0 mb-3">
         {% for recipient in object_list %}
 
@@ -13,24 +16,22 @@
                     #{{ page_obj.start_index|add:forloop.counter0 }}
                 </span>
                 <div class="col-4">
-
                     <h5 class="mb-1 fw-semibold">
                         <i class="bi bi-person-circle text-primary me-2"></i>
                         {{ recipient.email }}</h5>
-<!--                    <small class="text-muted">Получатель рассылки</small>-->
                 </div>
                 <div class="col-4">
                     <p class="mb-0 text-secondary">{{ recipient.comment|truncatechars:100 }}</p>
                 </div>
                 <div class="col-3 text-end">
                     <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-primary" href="#" title="подробнее">
+                        <a class="btn btn-sm btn-outline-primary" href="{% url 'mailing_service:recipient_detail' recipient.pk %}" title="подробнее">
                             <i class="bi bi-eye me-1"></i>
                         </a>
-                        <a class="btn btn-sm btn-outline-secondary" href="#" title="редактировать">
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'mailing_service:recipient_update' recipient.pk %}" title="редактировать">
                             <i class="bi bi-pencil-square me-1"></i>
                         </a>
-                        <a class="btn btn-sm btn-outline-danger" href="#" title="удалить">
+                        <a class="btn btn-sm btn-outline-danger" href="{% url 'mailing_service:recipient_delete' recipient.pk %}" title="удалить">
                             <i class="bi bi-trash me-1"></i>
                         </a>
                     </div>

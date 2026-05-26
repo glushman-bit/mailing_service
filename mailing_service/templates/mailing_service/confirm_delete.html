@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="col-md-9 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h5 class="my-0 font-weight-normal">
+                    <i class="bi bi-trash text-bg-danger me-1"></i>
+                    Удаление данных
+                </h5>
+            </div>
+
+            <div class="card-body">
+                <p class="card-text m-md-4"><strong>Вы уверены, что хотите удалить:</strong></p>
+                <p class="mb-2 m-md-2">{{ object.full_name }}</p>
+                <p class="mb-2 m-md-2 mb-lg-5">{{ object.email }}</p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <a class="btn btn-sm btn-outline-primary" href="{% url 'mailing_service:recipients_list' %}">
+                        <i class="bi bi-reply me-1"> Назад</i>
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        <i class="bi bi-trash me-1"> Да, уверен</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
