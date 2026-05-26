@@ -1,8 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from mailing_service.models import Recipient
-
+from mailing_service.models import Recipient, Message
 
 
 class StyleFormMixin:
@@ -14,6 +13,7 @@ class StyleFormMixin:
 
 
 class RecipientForm(StyleFormMixin, ModelForm):
+    """ Класс формы для получателей рассылки """
     class Meta:
         model = Recipient
         exclude = ("created_at",)
@@ -22,3 +22,11 @@ class RecipientForm(StyleFormMixin, ModelForm):
         }
 
 
+class MessageForm(StyleFormMixin, ModelForm):
+    """ Класс формы для сообщений """
+    class Meta:
+        model = Message
+        exclude = ("created_at",)
+        widgets = {
+            "content": forms.Textarea(attrs={"row": 3}),
+        }

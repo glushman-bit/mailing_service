@@ -2,7 +2,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.urls import reverse_lazy
 
 from mailing_service.models import Recipient, Message, Mailing
-from mailing_service.forms import RecipientForm
+from mailing_service.forms import RecipientForm, MessageForm
 
 
 class MainPageView(TemplateView):
@@ -46,20 +46,31 @@ class RecipientCreateView(CreateView):
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
-    success_url = reverse_lazy("mailing_service:recipients_list")
+    extra_context = {
+        "back_url": "mailing_service:recipients_list",
+        "object_type": "Recipient",
+    }
+
 
 
 class RecipientUpdateView(UpdateView):
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
-    success_url = reverse_lazy("mailing_service:recipients_list")
+    extra_context = {
+        "back_url": "mailing_service:recipients_list",
+        "object_type": "Recipient",
+    }
+
 
 
 class RecipientDeleteView(DeleteView):
     model = Recipient
     template_name = "mailing_service/confirm_delete.html"
-    success_url = reverse_lazy("mailing_service:recipients_list")
+    extra_context = {
+        "back_url": "mailing_service:recipients_list",
+        "object_type": "Recipient",
+    }
 
 
 class MessageListView(ListView):
@@ -68,6 +79,43 @@ class MessageListView(ListView):
     context_object_name = "page_object"
     paginate_by = 10
     ordering = ["created_at"]
+
+
+class MessageDetailView(DetailView):
+    model = Message
+    template_name = "mailing_service/message_detail.html"
+    context_object_name = "message"
+    success_url = reverse_lazy("mailing_service:messages_list")
+
+
+class MessageCreateView(CreateView):
+    model = Message
+    form_class = MessageForm
+    template_name = "mailing_service/form.html"
+    extra_context = {
+        "back_url": "mailing_service:messages_list",
+        "object_type": "Message",
+    }
+
+
+class MessageUpdateView(UpdateView):
+    model = Message
+    form_class = MessageForm
+    template_name = "mailing_service/form.html"
+    extra_context = {
+        "back_url": "mailing_service:messages_list",
+        "object_type": "Message",
+    }
+
+
+class MessageDeleteView(DeleteView):
+    model = Message
+    template_name = "mailing_service/confirm_delete.html"
+    extra_context = {
+        "back_url": "mailing_service:messages_list",
+        "object_type": "Message",
+    }
+
 
 
 class MailingListView(ListView):
