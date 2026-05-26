@@ -59,9 +59,9 @@ class Message(models.Model):
 class Mailing(models.Model):
     """ Класс рассылки """
 
-    STATUS_CREATED = 'created'
-    STATUS_RUNNING = 'running'
-    STATUS_COMPLETED = 'completed'
+    STATUS_CREATED = 'Создана'
+    STATUS_RUNNING = 'Запущена'
+    STATUS_COMPLETED = 'Завершена'
 
     CHOICES_STATUS = [
         (STATUS_CREATED, 'Создана'),
@@ -86,11 +86,15 @@ class Mailing(models.Model):
     message = models.ForeignKey(
         Message,
         on_delete=models.CASCADE,
-        related_name="Сообщение",
+        related_name="mailings",
+        verbose_name="Сообщение",
     )
     recipients = models.ManyToManyField(
         Recipient,
-        related_name="Сообщения",
+        blank=True,
+        null=True,
+        related_name="mailings",
+        verbose_name="Получатели рассылки",
     )
     created_at = models.DateTimeField(
         default=timezone.now,
