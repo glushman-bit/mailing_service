@@ -7,12 +7,26 @@
         <div class="card mb-4 box-shadow">
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">
-                    {% if object %}
-                    <i class="bi bi-pencil-square text-primary me-2"></i>
-                    Редактирование данных о клиенте
-                    {% else %}
-                    <i class="bi bi-person-plus text-primary me-2"></i>
-                    Добавление нового клиента
+                    {% if object_type == 'Recipient' %}
+
+                        {% if object %}
+                        <i class="bi bi-pencil-square text-primary me-2"></i>
+                        Редактирование данных о клиенте
+                        {% else %}
+                        <i class="bi bi-person-plus text-primary me-2"></i>
+                        Добавление нового клиента
+                        {% endif %}
+
+                    {% elif object_type == 'Message' %}
+
+                        {% if object %}
+                        <i class="bi bi-envelope-paper text-primary me-2"></i>
+                        Редактирование сообщения
+                        {% else %}
+                        <i class="bi bi-envelope-plus text-primary me-2"></i>
+                        Добавление нового сообщения
+                        {% endif %}
+
                     {% endif %}
                 </h4>
             </div>
@@ -20,7 +34,7 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <a class="btn btn-sm btn-outline-primary mt-5" href="{% url 'mailing_service:recipients_list' %}">
+                    <a class="btn btn-sm btn-outline-primary mt-5" href="{% url back_url %}">
                         <i class="bi bi-reply me-1"> Назад</i>
                     </a>
                     <button type="submit" class="btn btn-sm btn-outline-primary mt-5">
