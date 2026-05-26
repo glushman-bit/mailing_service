@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from mailing_service.models import Recipient, Message
+from mailing_service.models import Recipient, Message, Mailing
 
 
 class StyleFormMixin:
@@ -30,3 +30,34 @@ class MessageForm(StyleFormMixin, ModelForm):
         widgets = {
             "content": forms.Textarea(attrs={"row": 3}),
         }
+
+
+class MailingForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Mailing
+        exclude = ("created_at",)
+        widgets = {
+            "start_time": forms.DateTimeInput(
+                format='%Y-%m-%dT%H:%M',
+                attrs={
+                    "class": "form-control",
+                    "type": "datetime-local",
+                }
+            ),
+            "end_time": forms.DateTimeInput(
+                format='%Y-%m-%dT%H:%M',
+                attrs={
+                    "class": "form-control",
+                    'type': 'datetime-local',
+                }
+            ),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["start_time"].input_formats = (
+            "%Y-%m-%dT%H:%M",
+        )
+        self.fields["end_time"].input_formats = (
+            "%Y-%m-%dT%H:%M",
+        )

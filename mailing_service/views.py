@@ -2,7 +2,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.urls import reverse_lazy
 
 from mailing_service.models import Recipient, Message, Mailing
-from mailing_service.forms import RecipientForm, MessageForm
+from mailing_service.forms import RecipientForm, MessageForm, MailingForm
 
 
 class MainPageView(TemplateView):
@@ -12,8 +12,6 @@ class MainPageView(TemplateView):
     def get_context_data(self, **kwargs):
         """ Добавление данных на главную страницу """
         context = super().get_context_data(**kwargs)
-
-        print(context)
 
         recipients = Recipient.objects.all()
         context["recipients_all"] = len(list(recipient for recipient in recipients))
@@ -46,6 +44,7 @@ class RecipientCreateView(CreateView):
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
     extra_context = {
         "back_url": "mailing_service:recipients_list",
         "object_type": "Recipient",
@@ -57,16 +56,17 @@ class RecipientUpdateView(UpdateView):
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
     extra_context = {
         "back_url": "mailing_service:recipients_list",
         "object_type": "Recipient",
     }
 
 
-
 class RecipientDeleteView(DeleteView):
     model = Recipient
     template_name = "mailing_service/confirm_delete.html"
+    success_url = reverse_lazy("mailing_service:recipients_list")
     extra_context = {
         "back_url": "mailing_service:recipients_list",
         "object_type": "Recipient",
@@ -92,6 +92,7 @@ class MessageCreateView(CreateView):
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:messages_list")
     extra_context = {
         "back_url": "mailing_service:messages_list",
         "object_type": "Message",
@@ -102,6 +103,7 @@ class MessageUpdateView(UpdateView):
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:messages_list")
     extra_context = {
         "back_url": "mailing_service:messages_list",
         "object_type": "Message",
@@ -111,11 +113,11 @@ class MessageUpdateView(UpdateView):
 class MessageDeleteView(DeleteView):
     model = Message
     template_name = "mailing_service/confirm_delete.html"
+    success_url = reverse_lazy("mailing_service:messages_list")
     extra_context = {
         "back_url": "mailing_service:messages_list",
         "object_type": "Message",
     }
-
 
 
 class MailingListView(ListView):
@@ -125,3 +127,41 @@ class MailingListView(ListView):
     paginate_by = 10
     ordering = ["created_at"]
 
+
+class MailingDetailView(DetailView):
+    model = Mailing
+    template_name = "mailing_service/mailing_detail.html"
+    context_object_name = "mailing"
+    success_url = reverse_lazy("mailing_service:mailings_list")
+
+
+class MailingCreateView(CreateView):
+    model = Mailing
+    form_class = MailingForm
+    template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:mailings_list")
+    extra_context = {
+        "back_url": "mailing_service:mailings_list",
+        "object_type": "Mailing",
+    }
+
+
+class MailingUpdateView(UpdateView):
+    model = Mailing
+    form_class = MailingForm
+    template_name = "mailing_service/form.html"
+    success_url = reverse_lazy("mailing_service:mailings_list")
+    extra_context = {
+        "back_url": "mailing_service:mailings_list",
+        "object_type": "Mailing",
+    }
+
+
+class MailingDeleteView(DeleteView):
+    model = Mailing
+    template_name = "mailing_service/confirm_delete.html"
+    success_url = reverse_lazy("mailing_service:mailings_list")
+    extra_context = {
+        "back_url": "mailing_service:mailings_list",
+        "object_type": "Mailing",
+    }

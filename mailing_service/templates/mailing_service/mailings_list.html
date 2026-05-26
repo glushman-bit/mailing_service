@@ -5,6 +5,9 @@
 {% include 'mailing_service/includes/mailings_header.html' %}
 
 <div class="container mb-5">
+    <a class="btn btn-sm btn-outline-primary mb-lg-4" href="{% url 'mailing_service:mailing_create' %}">
+        <i class="bi bi-envelope me-1 fs-6"> Добавить рассылку</i>
+    </a>
     <div class="card shadow-sm border-0 mb-3">
         {% for mailing in object_list %}
 
@@ -17,7 +20,6 @@
                     <h5 class="mb-1 fw-semibold">
                         <i class="bi bi-send text-primary me-2"></i>
                         {{ mailing.message }}</h5>
-<!--                    <small class="text-muted">Получатель рассылки</small>-->
                 </div>
                 <div class="col-2">
                     <p class="mb-0">{{ mailing.status }}</p>
@@ -30,13 +32,13 @@
                 </div>
                 <div class="col-2 text-end">
                     <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-primary" href="#" title="подробнее">
+                        <a class="btn btn-sm btn-outline-primary" href="{% url 'mailing_service:mailing_detail' mailing.pk %}" title="подробнее">
                             <i class="bi bi-eye me-1"></i>
                         </a>
-                        <a class="btn btn-sm btn-outline-secondary" href="#" title="редактировать">
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'mailing_service:mailing_update' mailing.pk %}" title="редактировать">
                             <i class="bi bi-pencil-square me-1"></i>
                         </a>
-                        <a class="btn btn-sm btn-outline-danger" href="#" title="удалить">
+                        <a class="btn btn-sm btn-outline-danger" href="{% url 'mailing_service:mailing_delete' mailing.pk %}" title="удалить">
                             <i class="bi bi-trash me-1"></i>
                         </a>
                     </div>
