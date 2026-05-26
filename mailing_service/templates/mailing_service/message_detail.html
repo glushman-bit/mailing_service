@@ -14,26 +14,16 @@
                 <table class="table table-borderless align-middle mb-5">
                     <tbody>
                         <tr>
-                            <th class="text-secondary" style="width: 220px;">
-                                Название:
-                            </th>
+                            <th class="text-secondary" style="width: 220px;">Название:</th>
                             <td>{{ message.title }}</td>
                         </tr>
                         <tr>
-                            <th class="text-secondary">
-                                Контент:
-                            </th>
-                            <td>
-                                {{ message.content }}
-                            </td>
+                            <th class="text-secondary">Контент:</th>
+                            <td>{{ message.content }}</td>
                         </tr>
                         <tr>
-                            <th class="text-secondary">
-                                Дата создания
-                            </th>
-                            <td>
-                                {{ message.created_at|date:"d.m.Y H:i" }}
-                            </td>
+                            <th class="text-secondary">Дата создания</th>
+                            <td>{{ message.created_at|date:"d.m.Y H:i" }}</td>
                         </tr>
                     </tbody>
                 </table>

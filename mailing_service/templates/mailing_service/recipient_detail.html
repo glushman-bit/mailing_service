@@ -14,33 +14,20 @@
                 <table class="table table-borderless align-middle mb-5">
                     <tbody>
                         <tr>
-                            <th class="text-secondary" style="width: 220px;">
-                                Имя
-                            </th>
+                            <th class="text-secondary" style="width: 220px;">Имя</th>
                             <td>{{ recipient.full_name }}</td>
                         </tr>
                         <tr>
-                            <th class="text-secondary">
-                                Email
-                            </th>
-                            <td>
-                                <i class="bi bi-envelope me-1 text-primary"></i>
-                                {{ recipient.email }}
-                            </td>
+                            <th class="text-secondary">Email</th>
+                            <td><i class="bi bi-envelope me-1 text-primary"></i>{{ recipient.email }}</td>
                         </tr>
                         <tr>
-                            <th class="text-secondary">
-                                Комментарий
-                            </th>
+                            <th class="text-secondary">Комментарий</th>
                             <td>{{ recipient.comment }}</td>
                         </tr>
                         <tr>
-                            <th class="text-secondary">
-                                Дата создания
-                            </th>
-                            <td>
-                                {{ recipient.created_at|date:"d.m.Y H:i" }}
-                            </td>
+                            <th class="text-secondary">Дата создания</th>
+                            <td>{{ recipient.created_at|date:"d.m.Y H:i" }}</td>
                         </tr>
                     </tbody>
                 </table>

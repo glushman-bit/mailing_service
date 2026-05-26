@@ -27,6 +27,16 @@
                         Добавление нового сообщения
                         {% endif %}
 
+                    {% elif object_type == 'Mailing' %}
+
+                        {% if object %}
+                        <i class="bi bi-send text-primary me-2"></i>
+                        Редактирование рассылки
+                        {% else %}
+                        <i class="bi bi-megaphone text-primary me-2"></i>
+                        Добавление новой рассылки
+                        {% endif %}
+
                     {% endif %}
                 </h4>
             </div>

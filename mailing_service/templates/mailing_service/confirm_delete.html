@@ -15,14 +15,19 @@
             <div class="card-body">
                 <p class="card-text m-md-4"><strong>Вы уверены, что хотите удалить:</strong></p>
                 {% if object_type == 'Recipient' %}
-
+                    <p class="mb-2 m-md-2">Клиент:</p>
                     <p class="mb-2 m-md-2">{{ object.full_name }}</p>
                     <p class="mb-2 m-md-2 mb-lg-5">{{ object.email }}</p>
 
                 {% elif object_type == 'Message' %}
-
+                    <p class="mb-2 m-md-2">Сообщение:</p>
                     <p class="mb-2 m-md-2">{{ object.title }}</p>
                     <p class="mb-2 m-md-2 mb-lg-5">{{ object.content }}</p>
+
+                {% elif object_type == 'Mailing' %}
+                    <p class="mb-2 m-md-2">Рассылка:</p>
+                    <p class="mb-2 m-md-2">{{ object.message }}</p>
+                    <p class="mb-2 m-md-2 mb-lg-5">{{ object.status }}</p>
 
                 {% endif %}
                 <form method="post" enctype="multipart/form-data">
