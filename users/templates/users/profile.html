@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Личный кабинет</h3>
+                </div>
+                <div class="card-body">
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" width="200" class="mb-3">
+                    {% endif %}
+                    <p>
+                        <strong>Email:</strong>
+                        {{ object.email }}
+                    </p>
+                    <p>
+                        <strong>Телефон:</strong>
+                        {{ object.phone_number }}
+                    </p>
+                    <a href="{% url 'users:profile_update' %}" class="btn btn-primary">Изменить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -18,14 +18,14 @@
         <div>
 
             {% if user.is_authenticated %}
-            <form method="post" action="#" style="display: inline">
+            <form method="post" action="{% url 'users:logout' %}" style="display: inline">
                 {% csrf_token %}
                 <button type="submit" class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end">Выйти</button>
-                <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Личный кабинет</a>
+                <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:profile' %}">Личный кабинет</a>
             </form>
             {% else %}
-            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Войти</a>
-            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="#">Регистрация</a>
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:login' %}">Войти</a>
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:register' %}">Регистрация</a>
             {% endif %}
         </div>
     </div>
