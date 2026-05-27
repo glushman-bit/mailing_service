@@ -35,7 +35,7 @@ class MessageForm(StyleFormMixin, ModelForm):
 class MailingForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Mailing
-        exclude = ("created_at",)
+        exclude = ("created_at", "status",)
         widgets = {
             "start_time": forms.DateTimeInput(
                 format='%Y-%m-%dT%H:%M',

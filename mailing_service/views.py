@@ -40,6 +40,8 @@ class RecipientDetailView(DetailView):
     success_url = reverse_lazy("mailing_service:recipients_list")
 
 
+
+
 class RecipientCreateView(CreateView):
     model = Recipient
     form_class = RecipientForm
@@ -127,12 +129,24 @@ class MailingListView(ListView):
     paginate_by = 10
     ordering = ["created_at"]
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        for mailing in queryset:
+            mailing.update_status()
+
+        return queryset
+
 
 class MailingDetailView(DetailView):
     model = Mailing
     template_name = "mailing_service/mailing_detail.html"
     context_object_name = "mailing"
-    success_url = reverse_lazy("mailing_service:mailings_list")
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        obj.update_status()
+        return obj
 
 
 class MailingCreateView(CreateView):
