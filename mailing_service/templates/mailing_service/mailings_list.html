@@ -22,7 +22,14 @@
                         {{ mailing.message }}</h5>
                 </div>
                 <div class="col-2">
-                    <p class="mb-0">{{ mailing.status }}</p>
+                    <p class="mb-0">статус:</p>
+                    {% if mailing.status == 'Создана' %}
+                    <b class="badge rounded-pill bg-secondary"> {{ mailing.status }}</b>
+                    {% elif mailing.status == 'Запущена' %}
+                    <b class="badge rounded-pill bg-success"> {{ mailing.status }}</b>
+                    {% elif mailing.status == 'Завершена' %}
+                    <b class="badge rounded-pill bg-danger"> {{ mailing.status }}</b>
+                    {% endif %}
                 </div>
                 <div class="card-body col-4">
                     <p class="mb-0 text-secondary">Период рассылки:</p>
