@@ -13,20 +13,10 @@
             <div class="card-body">
                 <table class="table table-borderless align-middle mb-5 w-100">
                     <tbody>
-                        <tr>
-                            <th class="text-secondary">Дата создания</th>
-                            <td>{{ mailing.created_at|date:"d.m.Y H:i" }}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-secondary">Статус:</th>
-                            <td>{{ mailing.status }}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-secondary">Сообщение:</th>
-                            <td>{{ mailing.message }}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-secondary">Получатели:</th>
+                        <tr><th class="text-secondary">Дата создания</th><td>{{ mailing.created_at|date:"d.m.Y H:i" }}</td></tr>
+                        <tr><th class="text-secondary">Статус:</th><td>{{ mailing.status }}</td></tr>
+                        <tr><th class="text-secondary">Сообщение:</th><td>{{ mailing.message }}</td></tr>
+                        <tr><th class="text-secondary">Получатели:</th>
                             <td>
                                 {% for recipient in mailing.recipients.all %}
                                     <span class="badge bg-primary me-1">{{ recipient.email }}</span>
@@ -35,14 +25,8 @@
                                 {% endfor %}
                             </td>
                         </tr>
-                        <tr>
-                            <th class="text-secondary">Дата начала рассылки</th>
-                            <td>{{ mailing.start_time|date:"d.m.Y H:i" }}</td>
-                        </tr>
-                        <tr>
-                            <th class="text-secondary">Дата окончания рассылки</th>
-                            <td>{{ mailing.end_time|date:"d.m.Y H:i" }}</td>
-                        </tr>
+                        <tr><th class="text-secondary">Дата начала рассылки</th><td>{{ mailing.start_time|date:"d.m.Y H:i" }}</td></tr>
+                        <tr><th class="text-secondary">Дата окончания рассылки</th><td>{{ mailing.end_time|date:"d.m.Y H:i" }}</td></tr>
                     </tbody>
                 </table>
                 <div class="btn">

@@ -6,7 +6,7 @@
         <div class="card mb-4 box-shadow">
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">
-                    Выполните регистрацию
+                    Выполните вход в аккаунт
                 </h4>
             </div>
             <div class="card">
@@ -15,12 +15,12 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-sm btn-outline-primary">
-                            Зарегистрироваться
+                        Войти
                         </button>
+                        <a class="btn btn-sm btn-outline-warning align-content-lg-end" href="{% url 'password_reset' %}">Забыли пароль?</a>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

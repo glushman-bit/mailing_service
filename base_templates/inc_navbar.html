@@ -1,4 +1,3 @@
-{% load my_tags %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="{% url 'mailing_service:main_page' %}" title="Главная страница">
@@ -8,9 +7,7 @@
         <div class="align-content-center">
             {% if user.is_authenticated %}
             <b>Добро пожаловать, {{ user.email }}!</b>
-                {% if user.avatar %}
-                    <img src="{{ user.avatar | media_filter }}" class="rounded-circle"  width="30px" alt="def">
-                {% endif %}
+            <img src="{{ user.get_avatar_url }}" class="img-fluid rounded-circle shadow"  width="40px" alt="def">
             {% else %}
             <b>Добро пожаловать на сайт!</b>
             {% endif %}
@@ -24,7 +21,7 @@
                 <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:profile' %}">Личный кабинет</a>
             </form>
             {% else %}
-            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:login' %}">Войти</a>
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'login' %}">Войти</a>
             <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:register' %}">Регистрация</a>
             {% endif %}
         </div>
