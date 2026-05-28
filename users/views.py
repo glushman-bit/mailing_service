@@ -7,14 +7,14 @@ from django.core.mail import send_mail
 
 from config.settings import EMAIL_HOST_USER
 from users.models import User
-from users.forms import UserRegistrationForm
+from users.forms import UserRegistrationForm, UserProfileForm
 
 
 
 class UserCreateView(CreateView):
     model = User
     form_class = UserRegistrationForm
-    success_url = reverse_lazy('users:login')
+    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
         user = form.save()
@@ -39,12 +39,13 @@ def email_verification(request, token):
     user.is_active = True
     user.save()
 
-    return redirect(reverse('users:login'))
+    return redirect(reverse('login'))
 
 
 class UserDetailView(DetailView):
     model = User
     template_name = 'users/profile.html'
+    context_object_name = 'profile'
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -52,7 +53,7 @@ class UserDetailView(DetailView):
 
 class UserUpdateView(UpdateView):
     model = User
-    form_class = UserRegistrationForm
+    form_class = UserProfileForm
     template_name = 'users/profile_form.html'
     success_url = reverse_lazy('users:profile')
 
