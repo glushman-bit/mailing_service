@@ -1,8 +1,12 @@
+import os.path
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+
+from config import settings
 
 
 class User(AbstractUser):
@@ -47,3 +51,9 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    @property
+    def get_avatar_url(self):
+        if self.avatar and hasattr(self.avatar, "url"):
+            return self.avatar.url
+        return f"/{settings.STATIC_URL.lstrip("/")}avatar/default-avatar.jpg"
