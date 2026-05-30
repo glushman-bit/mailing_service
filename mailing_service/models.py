@@ -78,7 +78,7 @@ class Mailing(models.Model):
         help_text="Введите дату и время окончания рассылки",
     )
     status = models.CharField(
-        max_length=10,
+        max_length=20,
         choices=CHOICES_STATUS,
         default=STATUS_CREATED,
         verbose_name="Статус",
@@ -126,3 +126,39 @@ class Mailing(models.Model):
         """ Валидация даты начала рассылки """
         if self.start_time >= self.end_time:
             raise ValidationError("Дата окончания не может быть раньше даты начала")
+
+
+class MailingAttempt(models.Model):
+    """ Класс попытки рассылки """
+    STATUS_CHOICES = [
+        ('success', 'Успешно'),
+        ('failure', 'Не успешно'),
+    ]
+    mailing = models.ForeignKey(
+        Mailing,
+        on_delete=models.CASCADE,
+        verbose_name="Рассылка",
+        related_name="attempts",
+    )
+    attempt_time  = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата и время попытки рассылки",
+    )
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        verbose_name="Статус попытки",
+    )
+    server_response = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="Ответ почтового сервера",
+    )
+
+    class Meta:
+        verbose_name = "Попытка рассылки"
+        verbose_name_plural = "Попытки рассылки"
+        ordering = ['-attempt_time']
+
+    def __str__(self):
+        return f"Попытка для рассылки #{self.mailing_id} от {self.attempt_time.strftime('%d.%m.%Y %H:%M')}"
