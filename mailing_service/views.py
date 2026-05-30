@@ -1,8 +1,13 @@
+from django.contrib import messages
+from django.shortcuts import get_object_or_404, redirect
+from django.utils import timezone
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.views import View
 
 from mailing_service.models import Recipient, Message, Mailing
 from mailing_service.forms import RecipientForm, MessageForm, MailingForm
+from mailing_service.services import start_mailing
 
 
 class MainPageView(TemplateView):
@@ -14,26 +19,26 @@ class MainPageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         recipients = Recipient.objects.all()
-        context["recipients_all"] = len(list(recipient for recipient in recipients))
-        latest_recipients_raw = Recipient.objects.order_by('-id')[:3]
-        context["recipients_last"] = list(message for message in latest_recipients_raw)
+        context["recipients_all"] = len([recipient for recipient in recipients])
+        latest_recipients = Recipient.objects.order_by('-id')[:3]
+        context["recipients_last"] = [message for message in latest_recipients]
 
         messages = Message.objects.all()
-        context["messages_all"] = len(list(message for message in messages))
-        latest_messages_raw = Message.objects.order_by('-id')[:3]
-        context["messages_last"] = list(message for message in latest_messages_raw)
+        context["messages_all"] = len([message for message in messages])
+        latest_messages = Message.objects.order_by('-id')[:3]
+        context["messages_last"] = [message for message in latest_messages]
 
         mailings = Mailing.objects.all()
-        context["mailings_all"] = len(list(mailing for mailing in mailings))
-        context["mailings_create"] = len(list(mailing for mailing in mailings if mailing.status == "Создана"))
-        context["mailings_running"] = len(list(mailing for mailing in mailings if mailing.status == "Запущена"))
-        context["mailings_completed"] = len(list(mailing for mailing in mailings if mailing.status == "Завершена"))
+        context["mailings_all"] = len([mailing for mailing in mailings])
+        context["mailings_create"] = len([mailing for mailing in mailings if mailing.status == "Создана"])
+        context["mailings_running"] = len([mailing for mailing in mailings if mailing.status == "Запущена"])
+        context["mailings_completed"] = len([mailing for mailing in mailings if mailing.status == "Завершена"])
 
         return context
 
 
 class RecipientListView(ListView):
-    """ Класс представления списка получателей рассылки """
+    """ Класс представления списка получателей рассылки (клиентов) """
     model = Recipient
     template_name = "mailing_service/recipients_list.html"
     context_object_name = "page_object"
@@ -42,16 +47,15 @@ class RecipientListView(ListView):
 
 
 class RecipientDetailView(DetailView):
-    """ Класс представления детальной информации о получателе рассылки """
+    """ Класс представления детальной информации о получателе рассылки (клиенте) """
     model = Recipient
     template_name = "mailing_service/recipient_detail.html"
     context_object_name = "recipient"
     success_url = reverse_lazy("mailing_service:recipients_list")
 
 
-
-
 class RecipientCreateView(CreateView):
+    """ Класс создания получателя рассылки (клиента) """
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
@@ -62,8 +66,8 @@ class RecipientCreateView(CreateView):
     }
 
 
-
 class RecipientUpdateView(UpdateView):
+    """ Класс редактирования получателя рассылки (клиента) """
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
@@ -75,6 +79,7 @@ class RecipientUpdateView(UpdateView):
 
 
 class RecipientDeleteView(DeleteView):
+    """ Класс удаления получателей рассылки (клиентов) """
     model = Recipient
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:recipients_list")
@@ -85,6 +90,7 @@ class RecipientDeleteView(DeleteView):
 
 
 class MessageListView(ListView):
+    """ Класс просмотра списка сообщений """
     model = Message
     template_name = "mailing_service/messages_list.html"
     context_object_name = "page_object"
@@ -93,6 +99,7 @@ class MessageListView(ListView):
 
 
 class MessageDetailView(DetailView):
+    """ Класс просмотра деталей сообщении """
     model = Message
     template_name = "mailing_service/message_detail.html"
     context_object_name = "message"
@@ -100,6 +107,7 @@ class MessageDetailView(DetailView):
 
 
 class MessageCreateView(CreateView):
+    """ Класс создания сообщения """
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
@@ -111,6 +119,7 @@ class MessageCreateView(CreateView):
 
 
 class MessageUpdateView(UpdateView):
+    """ Класс редактирования сообщения """
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
@@ -122,6 +131,7 @@ class MessageUpdateView(UpdateView):
 
 
 class MessageDeleteView(DeleteView):
+    """ Класс удаления сообщения """
     model = Message
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:messages_list")
@@ -132,6 +142,7 @@ class MessageDeleteView(DeleteView):
 
 
 class MailingListView(ListView):
+    """ Класс просмотра списка рассылок """
     model = Mailing
     template_name = "mailing_service/mailings_list.html"
     context_object_name = "page_object"
@@ -148,6 +159,7 @@ class MailingListView(ListView):
 
 
 class MailingDetailView(DetailView):
+    """ Класс просмотра деталей о рассылке """
     model = Mailing
     template_name = "mailing_service/mailing_detail.html"
     context_object_name = "mailing"
@@ -159,6 +171,7 @@ class MailingDetailView(DetailView):
 
 
 class MailingCreateView(CreateView):
+    """ Класс создания рассылки """
     model = Mailing
     form_class = MailingForm
     template_name = "mailing_service/form.html"
@@ -170,6 +183,7 @@ class MailingCreateView(CreateView):
 
 
 class MailingUpdateView(UpdateView):
+    """ Класс редактирования рассылки """
     model = Mailing
     form_class = MailingForm
     template_name = "mailing_service/form.html"
@@ -181,6 +195,7 @@ class MailingUpdateView(UpdateView):
 
 
 class MailingDeleteView(DeleteView):
+    """ Класс удаления рассылки """
     model = Mailing
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:mailings_list")
@@ -188,3 +203,35 @@ class MailingDeleteView(DeleteView):
         "back_url": "mailing_service:mailings_list",
         "object_type": "Mailing",
     }
+
+
+class MailingStartView(View):
+    """Класс запуска рассылки через POST-запрос"""
+
+    def post(self, request, pk, *args, **kwargs):
+        mailing = get_object_or_404(Mailing, pk=pk)
+
+        now = timezone.now()
+
+        if not (mailing.start_time <= now <= mailing.end_time):
+            time_now = timezone.localtime(now).strftime('%d.%m.%Y %H:%M')
+            time_start = timezone.localtime(mailing.start_time).strftime('%d.%m.%Y %H:%M')
+            time_end = timezone.localtime(mailing.end_time).strftime('%d.%m.%Y %H:%M')
+
+            messages.error(
+                request,
+                f"Отправка запрещена. Текущее время {time_now}."
+                f"Рассылка доступна с {time_start} по {time_end}."
+            )
+            return redirect('mailing_service:mailings_list')
+
+        try:
+            start_mailing(mailing)
+            messages.success(request, "Рассылка успешно отправлена получателям!")
+
+        except Exception as e:
+            # Теперь этот блок поймает ошибку из send_mail!
+            messages.error(request, f"Ошибка при отправке: {e}")
+            mailing.save()
+
+        return redirect('mailing_service:mailings_list')
