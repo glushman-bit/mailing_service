@@ -2,6 +2,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
+from config.settings import AUTH_USER_MODEL
+
 
 class Recipient(models.Model):
     """ Класс получателя рассылки """
@@ -22,6 +24,13 @@ class Recipient(models.Model):
     created_at = models.DateTimeField(
         default=timezone.now,
         verbose_name="Дата создания",
+    )
+    owner = models.ForeignKey(
+        AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        verbose_name="Владелец",
     )
 
     class Meta:
@@ -46,6 +55,13 @@ class Message(models.Model):
     created_at = models.DateTimeField(
         default=timezone.now,
         verbose_name="Дата создания",
+    )
+    owner = models.ForeignKey(
+        AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        verbose_name="Владелец",
     )
 
     class Meta:
@@ -98,6 +114,13 @@ class Mailing(models.Model):
     created_at = models.DateTimeField(
         default=timezone.now,
         verbose_name="Дата создания",
+    )
+    owner = models.ForeignKey(
+        AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        verbose_name="Владелец",
     )
 
     class Meta:
