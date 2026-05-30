@@ -15,10 +15,19 @@ class MainPageView(TemplateView):
 
         recipients = Recipient.objects.all()
         context["recipients_all"] = len(list(recipient for recipient in recipients))
+        latest_recipients_raw = Recipient.objects.order_by('-id')[:3]
+        context["recipients_last"] = list(message for message in latest_recipients_raw)
+
         messages = Message.objects.all()
         context["messages_all"] = len(list(message for message in messages))
+        latest_messages_raw = Message.objects.order_by('-id')[:3]
+        context["messages_last"] = list(message for message in latest_messages_raw)
+
         mailings = Mailing.objects.all()
         context["mailings_all"] = len(list(mailing for mailing in mailings))
+        context["mailings_create"] = len(list(mailing for mailing in mailings if mailing.status == "Создана"))
+        context["mailings_running"] = len(list(mailing for mailing in mailings if mailing.status == "Запущена"))
+        context["mailings_completed"] = len(list(mailing for mailing in mailings if mailing.status == "Завершена"))
 
         return context
 

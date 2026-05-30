@@ -11,14 +11,14 @@
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Клиенты</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-people-fill text-primary me-2 fs-1"></i>
                     <h5 class="card-title pricing-card-title">Колличество : {{ recipients_all }}</h5>
+                    <h6 class="text-start mt-3">Последние клиенты:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- Неограниченная лицензия</li>
-                        <li>- Поддержка</li>
-                        <li>- Установка на сервер</li>
-                        <li>- Получение обновлений</li>
+                        {% for recipient in recipients_last %}
+                        <li>{{ recipient.email }}</li>
+                        {% endfor %}
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:recipients_list' %}">Подробнее</a>
                 </div>
@@ -29,14 +29,14 @@
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Письма</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-envelope-fill text-primary me-2 fs-1"></i>
                     <h5 class="card-title pricing-card-title">Колличество: {{ messages_all }}</h5>
+                    <h6 class="text-start mt-3">Последние письма:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- Неограниченная лицензия</li>
-                        <li>- Поддержка</li>
-                        <li>- Установка на сервер</li>
-                        <li>- Получение обновлений</li>
+                        {% for message in messages_last %}
+                        <li>{{ message.title }}</li>
+                        {% endfor %}
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:messages_list' %}">Подробнее</a>
                 </div>
@@ -45,19 +45,27 @@
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-
                     <h4 class="my-0 font-weight-normal">Рассылки</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-send-fill text-primary me-2 fs-1"></i>
-                    <h5 class="card-title pricing-card-title">Колличество: {{ mailings_all }}</h5>
+                    <h5 class="card-title pricing-card-title">Количество: {{ mailings_all }}</h5>
+                    <h6 class="text-start mt-3">Количество по статусу:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- Неограниченная лицензия</li>
-                        <li>- Поддержка</li>
-                        <li>- Установка на сервер</li>
-                        <li>- Получение обновлений</li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Создано:</span>
+                            <span class="badge bg-primary rounded-pill">{{ mailings_create }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Запущено:</span>
+                            <span class="badge bg-primary rounded-pill">{{ mailings_running }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Завершено:</span>
+                            <span class="badge bg-primary rounded-pill">{{ mailings_completed }}</span>
+                        </li>
                     </ul>
-                    <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:mailings_list' %}">Подробнее</a>
+                    <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:messages_list' %}">Подробнее</a>
                 </div>
             </div>
         </div>
