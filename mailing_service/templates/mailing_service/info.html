@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-6 fw-medium">Информация о проекте</h1>
+</div>
+
+<div class="container">
+    <div class="col">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-borderless align-middle mb-5">
+                    <tbody>
+                        <tr>
+                            <th class="text-secondary">Проект:</th>
+                            <td>Сервис рассылок</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Описание:</th>
+                            <td>Курсовая работа №4 учебного блока №7 SkyPro: "Разработка веб-приложений на Django"</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Создан</th>
+                            <td>Глушенков И.А.  Группа: Python IND 109.0</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Дата создания</th>
+                            <td>30 мая 2026 года</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn">
+                    <a class="btn btn-sm btn-outline-primary" href="{% url 'mailing_service:main_page' %}">
+                        <i class="bi bi-reply me-1"> Назад</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

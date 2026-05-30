@@ -32,5 +32,5 @@ urlpatterns = [
     # Ссылка на страницу отправки рассылок
     path('send/<int:pk>/', MailingStartView.as_view(), name='send_start'),
     # Прочие ссылки
-    path('contacts/', TemplateView.as_view(template_name='mailing_service/contacts.html'), name='contacts'),
+    path('info/', TemplateView.as_view(template_name='mailing_service/info.html'), name='info'),
 ]
