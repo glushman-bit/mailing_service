@@ -17,6 +17,6 @@ class Command(BaseCommand):
         user.is_staff = True
         user.is_superuser = True
 
-        iprint("Суперпользователь успешно создан")
+        print("Суперпользователь успешно создан")
 
         user.save()
