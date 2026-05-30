@@ -15,6 +15,11 @@ class MainPageView(TemplateView):
     """ Класс вывода главной страницы """
     template_name = "mailing_service/main_page.html"
 
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Mailing.objects.filter(owner=self.request.user)
+        return Mailing.objects.none()
+
     def get_context_data(self, **kwargs):
         """ Добавление данных на главную страницу """
         context = super().get_context_data(**kwargs)
@@ -36,15 +41,18 @@ class MainPageView(TemplateView):
         context["mailings_completed"] = len([mailing for mailing in mailings if mailing.status == "Завершена"])
 
         sent_mailings = MailingAttempt.objects.all()
-        context["sent_mailings_success"] = len([mailing for mailing in sent_mailings if mailing.status == 'success'])
-        context["sent_mailings_error"] = len([mailing for mailing in sent_mailings if mailing.status == 'failure'])
 
-        context["messages_success"] = MailingAttempt.objects.filter(
-            status='success',
-            mailing__owner=self.request.user,
-        ).filter(
-            Q(mailing__status=Mailing.STATUS_RUNNING) | Q(mailing__status=Mailing.STATUS_COMPLETED)
-        ).count()
+        if self.request.user.is_authenticated:
+            context["sent_mailings_success"] = len([mailing for mailing in sent_mailings if mailing.status == 'success'])
+            context["sent_mailings_error"] = len([mailing for mailing in sent_mailings if mailing.status == 'failure'])
+
+            context["messages_success"] = MailingAttempt.objects.filter(
+                status='success',
+                mailing__owner=self.request.user,
+            ).filter(
+                Q(mailing__status=Mailing.STATUS_RUNNING) | Q(mailing__status=Mailing.STATUS_COMPLETED)
+            ).count()
+            return context
 
         return context
 

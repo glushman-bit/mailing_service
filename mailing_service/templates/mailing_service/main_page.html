@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    {% if user.is_authenticated %}
     <div class="container">
         <div class="row text-center">
             <div class="col">
@@ -113,6 +114,12 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="jumbotron text-center bg-light p-5 rounded shadow-sm">
+        <h5>Сервис управления рассылками</h5>
+        <p class="lead">Для просмотра статистики, создания сообщений и запуска рассылок, пожалуйста, войдите в свой аккаунт.</p>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock %}
