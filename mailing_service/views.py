@@ -211,27 +211,12 @@ class MailingStartView(View):
     def post(self, request, pk, *args, **kwargs):
         mailing = get_object_or_404(Mailing, pk=pk)
 
-        now = timezone.now()
+        error_message = start_mailing(mailing)   #
 
-        if not (mailing.start_time <= now <= mailing.end_time):
-            time_now = timezone.localtime(now).strftime('%d.%m.%Y %H:%M')
-            time_start = timezone.localtime(mailing.start_time).strftime('%d.%m.%Y %H:%M')
-            time_end = timezone.localtime(mailing.end_time).strftime('%d.%m.%Y %H:%M')
+        if error_message:
+            messages.error(request, f"Ошибка при отправке: {error_message}")
 
-            messages.error(
-                request,
-                f"Отправка запрещена. Текущее время {time_now}."
-                f"Рассылка доступна с {time_start} по {time_end}."
-            )
-            return redirect('mailing_service:mailings_list')
-
-        try:
-            start_mailing(mailing)
+        else:
             messages.success(request, "Рассылка успешно отправлена получателям!")
-
-        except Exception as e:
-            # Теперь этот блок поймает ошибку из send_mail!
-            messages.error(request, f"Ошибка при отправке: {e}")
-            mailing.save()
 
         return redirect('mailing_service:mailings_list')
