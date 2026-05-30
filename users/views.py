@@ -1,9 +1,11 @@
 import secrets
 
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy, reverse
 from django.core.mail import send_mail
+from django.contrib import messages
 
 from config.settings import EMAIL_HOST_USER
 from users.models import User
@@ -11,10 +13,11 @@ from users.forms import UserRegistrationForm, UserProfileForm
 
 
 
-class UserCreateView(CreateView):
+class UserCreateView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserRegistrationForm
     success_url = reverse_lazy('login')
+    success_message = "Регистрация успешна! Письмо со ссылкой для подтверждения отправлено на вашу почту."
 
     def form_valid(self, form):
         user = form.save()
@@ -39,6 +42,7 @@ def email_verification(request, token):
     user.is_active = True
     user.save()
 
+    messages.success(request, 'Ваша почта успешно подтверждена! Теперь вы можете войти.')
     return redirect(reverse('login'))
 
 
