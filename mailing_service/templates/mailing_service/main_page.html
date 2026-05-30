@@ -13,8 +13,8 @@
                 </div>
                 <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-people-fill text-primary me-2 fs-1"></i>
-                    <h5 class="card-title pricing-card-title">Колличество : {{ recipients_all }}</h5>
-                    <h6 class="text-start mt-3">Последние клиенты:</h6>
+                    <h5 class="card-title pricing-card-title">Количество : {{ recipients_all }}</h5>
+                    <h6 class="text-start mt-3">Последние добавленные клиенты:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         {% for recipient in recipients_last %}
                         <li>{{ recipient.email }}</li>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-envelope-fill text-primary me-2 fs-1"></i>
-                    <h5 class="card-title pricing-card-title">Колличество: {{ messages_all }}</h5>
+                    <h5 class="card-title pricing-card-title">Количество: {{ messages_all }}</h5>
                     <h6 class="text-start mt-3">Последние письма:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         {% for message in messages_last %}
@@ -66,6 +66,49 @@
                         </li>
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:mailings_list' %}">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <div class="card col-mb-4 box-shadow mb-2">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Статистика пользователя: {{ user.email }}</h4>
+                    </div>
+                    <div class="row mt-md-4 mb-3">
+                        <div class="col-md-4">
+                            <div class="header mt-3">
+                                <i class="bi bi-send-arrow-up text-success me-3 fs-1"></i>
+                                <h5 class="my-0 font-weight-normal">Успешные попытки рассылок</h5>
+                            </div>
+                            <div class="card-body vh-50 overflow-auto">
+
+                                <h5 class="card-title pricing-card-title">Количество: {{ sent_mailings_success }}</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="header mt-3">
+                                <i class="bi bi-send-arrow-down text-danger me-3 fs-1"></i>
+                                <h5 class="my-0 font-weight-normal">Не успешные попытки рассылок</h5>
+                            </div>
+                            <div class="card-body vh-50 overflow-auto">
+
+                                <h5 class="card-title pricing-card-title">Количество: {{ sent_mailings_error }}</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="header mt-3">
+                                <i class="bi bi-envelope text-primary me-3 fs-1"></i>
+                                <h5 class="my-0 font-weight-normal">Количество отправленных сообщений</h5>
+                            </div>
+                            <div class="card-body vh-50 overflow-auto">
+
+                                <h5 class="card-title pricing-card-title">Количество: {{ messages_success }}</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

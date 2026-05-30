@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
-from django.utils import timezone
+
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View
+from django.db.models import Q
 
-from mailing_service.models import Recipient, Message, Mailing
+from mailing_service.models import Recipient, Message, Mailing, MailingAttempt
 from mailing_service.forms import RecipientForm, MessageForm, MailingForm
 from mailing_service.services import start_mailing
 
@@ -33,6 +34,17 @@ class MainPageView(TemplateView):
         context["mailings_create"] = len([mailing for mailing in mailings if mailing.status == "Создана"])
         context["mailings_running"] = len([mailing for mailing in mailings if mailing.status == "Запущена"])
         context["mailings_completed"] = len([mailing for mailing in mailings if mailing.status == "Завершена"])
+
+        sent_mailings = MailingAttempt.objects.all()
+        context["sent_mailings_success"] = len([mailing for mailing in sent_mailings if mailing.status == 'success'])
+        context["sent_mailings_error"] = len([mailing for mailing in sent_mailings if mailing.status == 'failure'])
+
+        context["messages_success"] = MailingAttempt.objects.filter(
+            status='success',
+            mailing__owner=self.request.user,
+        ).filter(
+            Q(mailing__status=Mailing.STATUS_RUNNING) | Q(mailing__status=Mailing.STATUS_COMPLETED)
+        ).count()
 
         return context
 
@@ -206,12 +218,12 @@ class MailingDeleteView(DeleteView):
 
 
 class MailingStartView(View):
-    """Класс запуска рассылки через POST-запрос"""
+    """Класс запуска рассылки через POST-запрос и вывода ошибок"""
 
-    def post(self, request, pk, *args, **kwargs):
+    def post(self, request, pk):
         mailing = get_object_or_404(Mailing, pk=pk)
 
-        error_message = start_mailing(mailing)   #
+        error_message = start_mailing(mailing)
 
         if error_message:
             messages.error(request, f"Ошибка при отправке: {error_message}")
