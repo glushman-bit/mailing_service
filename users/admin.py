@@ -9,6 +9,7 @@ class UserAdmin(admin.ModelAdmin):
         "email",
         "is_active",
         "is_superuser",
+        "is_staff",
         "created_at",
     )
     exclude = ("password",)

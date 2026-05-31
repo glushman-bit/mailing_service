@@ -16,7 +16,7 @@ class RecipientForm(StyleFormMixin, ModelForm):
     """ Класс формы для получателей рассылки """
     class Meta:
         model = Recipient
-        exclude = ("created_at",)
+        exclude = ("created_at", "owner",)
         widgets = {
             "comment": forms.Textarea(attrs={"rows": 3}),
         }
@@ -26,7 +26,7 @@ class MessageForm(StyleFormMixin, ModelForm):
     """ Класс формы для сообщений """
     class Meta:
         model = Message
-        exclude = ("created_at",)
+        exclude = ("created_at", "owner",)
         widgets = {
             "content": forms.Textarea(attrs={"row": 3}),
         }
@@ -35,7 +35,7 @@ class MessageForm(StyleFormMixin, ModelForm):
 class MailingForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Mailing
-        exclude = ("created_at", "status",)
+        exclude = ("created_at", "status", "owner",)
         widgets = {
             "start_time": forms.DateTimeInput(
                 format='%Y-%m-%dT%H:%M',

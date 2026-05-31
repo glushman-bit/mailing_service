@@ -32,13 +32,6 @@
                 <a class="btn btn-sm btn-outline-primary mt-5" href="{% url 'mailing_service:mailings_list' %}">
                     <i class="bi bi-reply me-1"> Назад</i>
                 </a>
-                <form method="post" enctype="multipart/form-data" action="{% url 'mailing_service:send_start' mailing.pk %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-sm btn-outline-primary mt-5">
-                        <i class="bi bi-send me-1"> Запустить рассылку</i>
-                    </button>
-                </form>
             </div>
             </div>
         </div>
