@@ -19,11 +19,15 @@
                 {% csrf_token %}
                 <button type="submit" class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end">Выйти</button>
                 <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:profile' %}">Личный кабинет</a>
+                {% if user.is_superuser or user.groups.all.0.name == 'Менеджеры' %}
+                    <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:users_list' %}">Пользователи</a>
+                {% endif %}
             </form>
             {% else %}
             <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'login' %}">Войти</a>
             <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:register' %}">Регистрация</a>
             {% endif %}
+
         </div>
     </div>
 </nav>
