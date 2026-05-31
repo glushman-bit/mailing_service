@@ -1,10 +1,13 @@
 from django.core.mail import send_mail
 from django.conf import settings
-from django.utils import timezone
+from django.utils import timezone, cache
 from mailing_service.models import MailingAttempt
 
 
 def start_mailing(mailing):
+    """ Функция отправки сообщений получателям рассылок.
+        Логирования данных в Admin.
+        Отправки лог данных в БД"""
     recipients = mailing.recipients.all()
     list_emails = [recipient.email for recipient in recipients]
 
@@ -61,3 +64,14 @@ def start_mailing(mailing):
             MailingAttempt.objects.bulk_create(attempts_batch, batch_size=100)
 
         return response_text
+
+
+def get_cache():
+    """ Функция кэширования данных """
+    users = cache.get('active_users_list')
+
+    if not users:
+        users = list(User.objects.filter(is_active=True))
+        cache.set('active_users_list', users, 300)
+
+    return users

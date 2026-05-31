@@ -3,11 +3,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.http import HttpResponseForbidden
 from django.utils import timezone
+from django.views.decorators.cache import cache_page
 
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View
 from django.db.models import Q, Count
+from django.utils.decorators import method_decorator
 
 from mailing_service.models import Recipient, Message, Mailing, MailingAttempt
 from mailing_service.forms import RecipientForm, MessageForm, MailingForm
@@ -87,6 +89,7 @@ class MainPageView(TemplateView):
         return context
 
 
+@method_decorator(cache_page(60 * 5), name="dispatch")
 class RecipientListView(ListView):
     """ Класс представления списка получателей рассылки (клиентов) """
     model = Recipient
@@ -151,6 +154,7 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
+@method_decorator(cache_page(600), name="dispatch")
 class MessageListView(ListView):
     """ Класс просмотра списка сообщений """
     model = Message
@@ -217,6 +221,7 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
+@method_decorator(cache_page(600), name="dispatch")
 class MailingListView(ListView):
     """ Класс просмотра списка рассылок """
     model = Mailing
