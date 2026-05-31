@@ -126,6 +126,9 @@ class Mailing(models.Model):
     class Meta:
         verbose_name = "Рассылка"
         verbose_name_plural = "Рассылки"
+        permissions = [
+            ("can_disable_distribution", "Can disable distribution service"),
+        ]
 
     def __str__(self):
         return self.message.title

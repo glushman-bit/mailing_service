@@ -2,7 +2,7 @@ from django.urls import path
 from mailing_service.views import MainPageView, RecipientListView, MessageListView, MailingListView, \
     RecipientDetailView, RecipientCreateView, RecipientUpdateView, RecipientDeleteView, MessageDetailView, \
     MessageCreateView, MessageUpdateView, MessageDeleteView, MailingDetailView, MailingCreateView, MailingUpdateView, \
-    MailingDeleteView, MailingStartView
+    MailingDeleteView, MailingStartView, MailingDistributionView
 from django.views.generic import TemplateView
 from mailing_service.apps import MailingServiceConfig
 
@@ -33,4 +33,5 @@ urlpatterns = [
     path('send/<int:pk>/', MailingStartView.as_view(), name='send_start'),
     # Прочие ссылки
     path('info/', TemplateView.as_view(template_name='mailing_service/info.html'), name='info'),
+    path('mailing/<int:pk>/disable/', MailingDistributionView.as_view(), name='toggle_mailing'),
 ]

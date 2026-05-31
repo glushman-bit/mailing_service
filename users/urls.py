@@ -3,8 +3,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from .apps import UsersConfig
 
-from .views import UserCreateView, UserDetailView, UserUpdateView, email_verification
-
+from .views import UserCreateView, UserDetailView, UserUpdateView, email_verification, UserListView, \
+    ToggleUserActiveView
 
 app_name = UsersConfig.name
 
@@ -15,4 +15,6 @@ urlpatterns = [
     path('email-confirm/<str:token>/', email_verification, name='email_confirm'),
     path('profile/', UserDetailView.as_view(), name='profile'),
     path('profile/update/', UserUpdateView.as_view(), name='profile_update'),
+    path('users-list/', UserListView.as_view(), name='users_list'),
+    path('<int:pk>/toggle-active/', ToggleUserActiveView.as_view(), name='toggle_user_active'),
 ]
