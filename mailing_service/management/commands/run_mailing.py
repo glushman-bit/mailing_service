@@ -1,20 +1,20 @@
+import logging
+
+from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.core.management import BaseCommand
 from django.utils import timezone
-from apscheduler.schedulers.blocking import BlockingScheduler
 from django_apscheduler.jobstores import DjangoJobStore
 
 from config import settings
 from mailing_service.models import Mailing
 from mailing_service.services import start_mailing
-import logging
-
 
 logger = logging.getLogger(__name__)
 
 
 def run_mailing():
-    """ Функция проверки какие рассылки необходимо отправлять """
+    """Функция проверки какие рассылки необходимо отправлять"""
     now = timezone.now()
 
     active_mailings = Mailing.objects.filter(

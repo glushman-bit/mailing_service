@@ -14,11 +14,18 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='mailing',
             name='message',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='Сообщение', to='mailing_service.message', verbose_name='Сообщение'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='Сообщение',
+                to='mailing_service.message',
+                verbose_name='Сообщение',
+            ),
         ),
         migrations.AlterField(
             model_name='mailing',
             name='recipients',
-            field=models.ManyToManyField(related_name='Сообщения', to='mailing_service.recipient', verbose_name='Получатели рассылки'),
+            field=models.ManyToManyField(
+                related_name='Сообщения', to='mailing_service.recipient', verbose_name='Получатели рассылки'
+            ),
         ),
     ]

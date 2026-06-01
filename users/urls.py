@@ -1,10 +1,15 @@
 from django.contrib.auth.views import LoginView, LogoutView
-
 from django.urls import path
-from .apps import UsersConfig
 
-from .views import UserCreateView, UserDetailView, UserUpdateView, email_verification, UserListView, \
-    ToggleUserActiveView
+from .apps import UsersConfig
+from .views import (
+    ToggleUserActiveView,
+    UserCreateView,
+    UserDetailView,
+    UserListView,
+    UserUpdateView,
+    email_verification,
+)
 
 app_name = UsersConfig.name
 

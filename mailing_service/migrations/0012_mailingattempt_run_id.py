@@ -13,6 +13,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mailingattempt',
             name='run_id',
-            field=models.CharField(blank=True, db_index=True, max_length=50, null=True, verbose_name='ID запуска рассылки'),
+            field=models.CharField(
+                blank=True, db_index=True, max_length=50, null=True, verbose_name='ID запуска рассылки'
+            ),
         ),
     ]

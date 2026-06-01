@@ -13,6 +13,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='mailing',
             name='recipients',
-            field=models.ManyToManyField(blank=True, null=True, related_name='mailings', to='mailing_service.recipient', verbose_name='Получатели рассылки'),
+            field=models.ManyToManyField(
+                blank=True,
+                null=True,
+                related_name='mailings',
+                to='mailing_service.recipient',
+                verbose_name='Получатели рассылки',
+            ),
         ),
     ]

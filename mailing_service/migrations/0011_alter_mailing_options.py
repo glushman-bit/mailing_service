@@ -12,6 +12,10 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='mailing',
-            options={'permissions': [('can_disable_distribution', 'Can disable distribution service')], 'verbose_name': 'Рассылка', 'verbose_name_plural': 'Рассылки'},
+            options={
+                'permissions': [('can_disable_distribution', 'Can disable distribution service')],
+                'verbose_name': 'Рассылка',
+                'verbose_name_plural': 'Рассылки',
+            },
         ),
     ]

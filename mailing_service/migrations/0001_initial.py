@@ -8,15 +8,17 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
             name='Message',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(help_text='Введите тему письма', max_length=100, verbose_name='Тема письма')),
+                (
+                    'title',
+                    models.CharField(help_text='Введите тему письма', max_length=100, verbose_name='Тема письма'),
+                ),
                 ('content', models.TextField(help_text='Введите сообщение', verbose_name='Сообщение')),
             ],
             options={
@@ -28,8 +30,16 @@ class Migration(migrations.Migration):
             name='Recipient',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(help_text='Введите Email', max_length=254, unique=True, verbose_name='Email')),
-                ('full_name', models.CharField(help_text='Введите Имя, Фамилию и Отчество', max_length=100, verbose_name='Ф.И.О.')),
+                (
+                    'email',
+                    models.EmailField(help_text='Введите Email', max_length=254, unique=True, verbose_name='Email'),
+                ),
+                (
+                    'full_name',
+                    models.CharField(
+                        help_text='Введите Имя, Фамилию и Отчество', max_length=100, verbose_name='Ф.И.О.'
+                    ),
+                ),
                 ('comment', models.TextField(help_text='Введите комментарий', verbose_name='Комментарий')),
             ],
             options={
@@ -41,10 +51,35 @@ class Migration(migrations.Migration):
             name='Mailing',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_time', models.DateTimeField(help_text='Введите дату и время начало рассылки', verbose_name='Начало рассылки')),
-                ('end_time', models.DateTimeField(help_text='Введите дату и время окончания рассылки', verbose_name='Конец рассылки')),
-                ('status', models.CharField(choices=[('created', 'Создана'), ('running', 'Запущена'), ('completed', 'Завершена')], default='created', max_length=10, verbose_name='Статус')),
-                ('message', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='Сообщение', to='mailing_service.message')),
+                (
+                    'start_time',
+                    models.DateTimeField(
+                        help_text='Введите дату и время начало рассылки', verbose_name='Начало рассылки'
+                    ),
+                ),
+                (
+                    'end_time',
+                    models.DateTimeField(
+                        help_text='Введите дату и время окончания рассылки', verbose_name='Конец рассылки'
+                    ),
+                ),
+                (
+                    'status',
+                    models.CharField(
+                        choices=[('created', 'Создана'), ('running', 'Запущена'), ('completed', 'Завершена')],
+                        default='created',
+                        max_length=10,
+                        verbose_name='Статус',
+                    ),
+                ),
+                (
+                    'message',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='Сообщение',
+                        to='mailing_service.message',
+                    ),
+                ),
                 ('recipients', models.ManyToManyField(related_name='Сообщения', to='mailing_service.recipient')),
             ],
             options={

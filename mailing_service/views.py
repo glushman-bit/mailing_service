@@ -1,5 +1,3 @@
-
-
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count, Q
@@ -10,8 +8,7 @@ from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_page
-from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
-                                  TemplateView, UpdateView)
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
 from mailing_service.forms import MailingForm, MessageForm, RecipientForm
 from mailing_service.models import Mailing, MailingAttempt, Message, Recipient
@@ -19,7 +16,7 @@ from mailing_service.services import start_mailing
 
 
 class MainPageView(TemplateView):
-    """ Класс вывода главной страницы с разграничением статистики администратора и пользователей"""
+    """Класс вывода главной страницы с разграничением статистики администратора и пользователей"""
     template_name = "mailing_service/main_page.html"
 
     def get_queryset(self):
@@ -28,7 +25,7 @@ class MainPageView(TemplateView):
         return Mailing.objects.none()
 
     def get_context_data(self, **kwargs):
-        """ Добавление данных на главную страницу """
+        """Добавление данных на главную страницу"""
         context = super().get_context_data(**kwargs)
         current_user = self.request.user
 
@@ -65,18 +62,10 @@ class MainPageView(TemplateView):
             context["messages_success"] = user_attempt.filter(status="success").count()
             context["messages_failure"] = user_attempt.filter(status="failure").count()
             context["sent_mailings_success"] = (
-                user_attempt.filter(status="success")
-                .values("run_id")
-                .distinct()
-                .order_by()
-                .count()
+                user_attempt.filter(status="success").values("run_id").distinct().order_by().count()
             )
             context["sent_mailings_error"] = (
-                user_attempt.filter(status="failure")
-                .values("run_id")
-                .distinct()
-                .order_by()
-                .count()
+                user_attempt.filter(status="failure").values("run_id").distinct().order_by().count()
             )
 
         else:
@@ -97,7 +86,8 @@ class MainPageView(TemplateView):
 
 # @method_decorator(cache_page(60 * 5), name="dispatch")
 class RecipientListView(ListView):
-    """ Класс представления списка получателей рассылки (клиентов) """
+    """Класс представления списка получателей рассылки (клиентов)"""
+
     model = Recipient
     template_name = "mailing_service/recipients_list.html"
     context_object_name = "page_object"
@@ -105,7 +95,7 @@ class RecipientListView(ListView):
     ordering = ["created_at"]
 
     def get_queryset(self):
-        """ Вывод списка получателей рассылки как владельца или как администратора """
+        """Вывод списка получателей рассылки как владельца или как администратора"""
         if self.request.user.is_superuser or self.request.user.is_staff:
             return Recipient.objects.all()
 
@@ -113,7 +103,8 @@ class RecipientListView(ListView):
 
 
 class RecipientDetailView(DetailView):
-    """ Класс представления детальной информации о получателе рассылки (клиенте) """
+    """Класс представления детальной информации о получателе рассылки (клиенте)"""
+
     model = Recipient
     template_name = "mailing_service/recipient_detail.html"
     context_object_name = "recipient"
@@ -121,7 +112,8 @@ class RecipientDetailView(DetailView):
 
 
 class RecipientCreateView(LoginRequiredMixin, CreateView):
-    """ Класс создания получателя рассылки (клиента) """
+    """Класс создания получателя рассылки (клиента)"""
+
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
@@ -132,13 +124,14 @@ class RecipientCreateView(LoginRequiredMixin, CreateView):
     }
 
     def form_valid(self, form):
-        """ Автоматическая привязка пользователя как владельца получателя рассылки """
+        """Автоматическая привязка пользователя как владельца получателя рассылки"""
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
 
 class RecipientUpdateView(LoginRequiredMixin, UpdateView):
-    """ Класс редактирования получателя рассылки (клиента) """
+    """Класс редактирования получателя рассылки (клиента)"""
+
     model = Recipient
     form_class = RecipientForm
     template_name = "mailing_service/form.html"
@@ -150,7 +143,8 @@ class RecipientUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class RecipientDeleteView(LoginRequiredMixin, DeleteView):
-    """ Класс удаления получателей рассылки (клиентов) """
+    """Класс удаления получателей рассылки (клиентов)"""
+
     model = Recipient
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:recipients_list")
@@ -162,7 +156,8 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
 
 # @method_decorator(cache_page(600), name="dispatch")
 class MessageListView(ListView):
-    """ Класс просмотра списка сообщений """
+    """Класс просмотра списка сообщений"""
+
     model = Message
     template_name = "mailing_service/messages_list.html"
     context_object_name = "page_object"
@@ -170,14 +165,15 @@ class MessageListView(ListView):
     ordering = ["created_at"]
 
     def get_queryset(self):
-        """ Вывод списка получателей рассылки как владельца или как администратора """
+        """Вывод списка получателей рассылки как владельца или как администратора"""
         if self.request.user.is_superuser or self.request.user.is_staff:
             return Message.objects.all()
         return Message.objects.filter(owner=self.request.user)
 
 
 class MessageDetailView(DetailView):
-    """ Класс просмотра деталей сообщении """
+    """Класс просмотра деталей сообщении"""
+
     model = Message
     template_name = "mailing_service/message_detail.html"
     context_object_name = "message"
@@ -185,7 +181,8 @@ class MessageDetailView(DetailView):
 
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
-    """ Класс создания сообщения """
+    """Класс создания сообщения"""
+
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
@@ -196,7 +193,7 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
     }
 
     def form_valid(self, form):
-        """ Создание текущего пользователя как владельца сообщения """
+        """Создание текущего пользователя как владельца сообщения"""
         messages = form.save()
         user = self.request.user
         messages.owner = user
@@ -205,7 +202,8 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
 
 
 class MessageUpdateView(LoginRequiredMixin, UpdateView):
-    """ Класс редактирования сообщения """
+    """Класс редактирования сообщения"""
+
     model = Message
     form_class = MessageForm
     template_name = "mailing_service/form.html"
@@ -217,7 +215,8 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
-    """ Класс удаления сообщения """
+    """Класс удаления сообщения"""
+
     model = Message
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:messages_list")
@@ -229,19 +228,20 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
 
 # @method_decorator(cache_page(600), name="dispatch")
 class MailingListView(ListView):
-    """ Класс просмотра списка рассылок """
+    """Класс просмотра списка рассылок"""
+
     model = Mailing
     template_name = "mailing_service/mailings_list.html"
     context_object_name = "page_object"
     paginate_by = 20
 
     def get_queryset(self):
-        """ Вывод списка получателей рассылки как владельца или как администратора с обновлением статуса """
+        """Вывод списка получателей рассылки как владельца или как администратора с обновлением статуса"""
         if self.request.user.is_superuser or self.request.user.is_staff:
             queryset = Mailing.objects.all()
         else:
             queryset = Mailing.objects.filter(owner=self.request.user)
-        
+
         for mailing in queryset:
             mailing.update_status()
 
@@ -249,20 +249,22 @@ class MailingListView(ListView):
 
 
 class MailingDetailView(DetailView):
-    """ Класс просмотра деталей о рассылке """
+    """Класс просмотра деталей о рассылке"""
+
     model = Mailing
     template_name = "mailing_service/mailing_detail.html"
     context_object_name = "mailing"
 
     def get_object(self, queryset=None):
-        """ Обновление статуса в детализации рассылки """
+        """Обновление статуса в детализации рассылки"""
         obj = super().get_object(queryset)
         obj.update_status()
         return obj
 
 
 class MailingCreateView(LoginRequiredMixin, CreateView):
-    """ Класс создания рассылки """
+    """Класс создания рассылки"""
+
     model = Mailing
     form_class = MailingForm
     template_name = "mailing_service/form.html"
@@ -273,7 +275,7 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
     }
 
     def get_form(self, form_class=None):
-        """ Фильтруем выпадающие списки внутри формы """
+        """Фильтруем выпадающие списки внутри формы"""
         form = super().get_form(form_class)
         if not self.request.user.is_superuser:
             form.fields["message"].queryset = Message.objects.filter(owner=self.request.user)
@@ -281,15 +283,15 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
 
         return form
 
-
     def form_valid(self, form):
-        """ Создание текущего пользователя как владельца рассылки """
+        """Создание текущего пользователя как владельца рассылки"""
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
 
 class MailingUpdateView(UpdateView):
-    """ Класс редактирования рассылки """
+    """Класс редактирования рассылки"""
+
     model = Mailing
     form_class = MailingForm
     template_name = "mailing_service/form.html"
@@ -301,7 +303,8 @@ class MailingUpdateView(UpdateView):
 
 
 class MailingDeleteView(LoginRequiredMixin, DeleteView):
-    """ Класс удаления рассылки """
+    """Класс удаления рассылки"""
+
     model = Mailing
     template_name = "mailing_service/confirm_delete.html"
     success_url = reverse_lazy("mailing_service:mailings_list")
@@ -327,13 +330,15 @@ class MailingStartView(View):
 
         return redirect('mailing_service:mailings_list')
 
+
 class MailingDistributionView(LoginRequiredMixin, View):
-    """ Класс отключения рассылки """
+    """Класс отключения рассылки"""
+
     def post(self, request, pk):
         mailing = get_object_or_404(Mailing, pk=pk)
         user = request.user
 
-        is_owner = (mailing.owner == user)
+        is_owner = mailing.owner == user
         is_superuser = user.is_superuser
         has_perms = user.has_perm("mailing.can_disable_distribution")
 

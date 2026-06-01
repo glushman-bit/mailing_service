@@ -6,7 +6,8 @@ from config.settings import AUTH_USER_MODEL
 
 
 class Recipient(models.Model):
-    """ Класс получателя рассылки """
+    """Класс получателя рассылки"""
+
     email = models.EmailField(
         unique=True,
         verbose_name="Email",
@@ -42,16 +43,14 @@ class Recipient(models.Model):
 
 
 class Message(models.Model):
-    """ Класс сообщения """
+    """Класс сообщения"""
+
     title = models.CharField(
         max_length=100,
         verbose_name="Тема письма",
         help_text="Введите тему письма",
     )
-    content = models.TextField(
-        verbose_name="Сообщение",
-        help_text="Введите сообщение"
-    )
+    content = models.TextField(verbose_name="Сообщение", help_text="Введите сообщение")
     created_at = models.DateTimeField(
         default=timezone.now,
         verbose_name="Дата создания",
@@ -73,7 +72,7 @@ class Message(models.Model):
 
 
 class Mailing(models.Model):
-    """ Класс рассылки """
+    """Класс рассылки"""
 
     STATUS_CREATED = 'Создана'
     STATUS_RUNNING = 'Запущена'
@@ -134,7 +133,7 @@ class Mailing(models.Model):
         return self.message.title
 
     def update_status(self):
-        """ Обновление статуса рассылки по текущему времени """
+        """Обновление статуса рассылки по текущему времени"""
         now = timezone.now()
 
         if now < self.start_time:
@@ -149,13 +148,14 @@ class Mailing(models.Model):
             self.save(update_fields=["status"])
 
     def clean(self):
-        """ Валидация даты начала рассылки """
+        """Валидация даты начала рассылки"""
         if self.start_time >= self.end_time:
             raise ValidationError("Дата окончания не может быть раньше даты начала")
 
 
 class MailingAttempt(models.Model):
-    """ Класс попытки рассылки """
+    """Класс попытки рассылки"""
+
     STATUS_CHOICES = [
         ('success', 'Успешно'),
         ('failure', 'Не успешно'),
@@ -166,7 +166,7 @@ class MailingAttempt(models.Model):
         verbose_name="Рассылка",
         related_name="attempts",
     )
-    attempt_time  = models.DateTimeField(
+    attempt_time = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Дата и время попытки рассылки",
     )
@@ -180,13 +180,7 @@ class MailingAttempt(models.Model):
         null=True,
         verbose_name="Ответ почтового сервера",
     )
-    run_id = models.CharField(
-        max_length=50,
-        blank=True,
-        null=True,
-        db_index=True,
-        verbose_name="ID запуска рассылки"
-    )
+    run_id = models.CharField(max_length=50, blank=True, null=True, db_index=True, verbose_name="ID запуска рассылки")
 
     class Meta:
         verbose_name = "Попытка рассылки"
