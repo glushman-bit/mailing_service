@@ -5,7 +5,6 @@
 {% include 'mailing_service/includes/home_header.html' %}
 
 <div class="container">
-
     <div class="row text-center">
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
@@ -15,6 +14,7 @@
                 <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-people-fill text-primary me-2 fs-1"></i>
                     <h5 class="card-title pricing-card-title">Количество : {{ recipients_all }}</h5>
+                    {% if user.is_authenticated %}
                     <h6 class="text-start mt-3">Последние добавленные клиенты:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         {% for recipient in recipients_last %}
@@ -22,6 +22,7 @@
                         {% endfor %}
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:recipients_list' %}">Подробнее</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -33,6 +34,7 @@
                 <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-envelope-fill text-primary me-2 fs-1"></i>
                     <h5 class="card-title pricing-card-title">Количество: {{ messages_all }}</h5>
+                    {% if user.is_authenticated %}
                     <h6 class="text-start mt-3">Последние письма:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         {% for message in messages_last %}
@@ -40,6 +42,7 @@
                         {% endfor %}
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:messages_list' %}">Подробнее</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -51,6 +54,7 @@
                 <div class="card-body vh-50 overflow-auto">
                     <i class="bi bi-send-fill text-primary me-2 fs-1"></i>
                     <h5 class="card-title pricing-card-title">Количество: {{ mailings_all }}</h5>
+                    {% if user.is_authenticated %}
                     <h6 class="text-start mt-3">Количество по статусу:</h6>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -67,11 +71,11 @@
                         </li>
                     </ul>
                     <a role="button" class="btn btn-lg-sm btn-outline-primary" href="{% url 'mailing_service:mailings_list' %}">Подробнее</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-
     {% if user.is_authenticated %}
     <div class="container">
         <div class="row text-center">
@@ -87,7 +91,6 @@
                                 <h5 class="my-0 font-weight-normal">Успешные попытки рассылок</h5>
                             </div>
                             <div class="card-body vh-50 overflow-auto">
-
                                 <h5 class="card-title pricing-card-title">Количество: {{ sent_mailings_success }}</h5>
                             </div>
                         </div>
@@ -97,7 +100,6 @@
                                 <h5 class="my-0 font-weight-normal">Не успешные попытки рассылок</h5>
                             </div>
                             <div class="card-body vh-50 overflow-auto">
-
                                 <h5 class="card-title pricing-card-title">Количество: {{ sent_mailings_error }}</h5>
                             </div>
                         </div>
@@ -107,7 +109,6 @@
                                 <h5 class="my-0 font-weight-normal">Количество отправленных сообщений</h5>
                             </div>
                             <div class="card-body vh-50 overflow-auto">
-
                                 <h5 class="card-title pricing-card-title">Количество: {{ messages_success }}</h5>
                             </div>
                         </div>

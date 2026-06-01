@@ -1,18 +1,20 @@
+
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, redirect
+from django.db.models import Count, Q
 from django.http import HttpResponseForbidden
-from django.utils import timezone
-from django.views.decorators.cache import cache_page
-
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views import View
-from django.db.models import Q, Count
+from django.utils import timezone
 from django.utils.decorators import method_decorator
+from django.views import View
+from django.views.decorators.cache import cache_page
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  TemplateView, UpdateView)
 
-from mailing_service.models import Recipient, Message, Mailing, MailingAttempt
-from mailing_service.forms import RecipientForm, MessageForm, MailingForm
+from mailing_service.forms import MailingForm, MessageForm, RecipientForm
+from mailing_service.models import Mailing, MailingAttempt, Message, Recipient
 from mailing_service.services import start_mailing
 
 
@@ -60,18 +62,22 @@ class MainPageView(TemplateView):
             context["mailings_create"] = user_mailings_stats["create_count"]
             context["mailings_running"] = user_mailings_stats["running_count"]
             context["mailings_completed"] = user_mailings_stats["completed_count"]
-
-            user_attempt_stats = user_attempt.aggregate(
-                success_all=Count("id", filter=Q(status="success")),
-                failure_all=Count("id", filter=Q(status="failure")),
-                success_filtered=Count("id", filter=Q(
-                    status="success",
-                    mailing__status__in=[Mailing.STATUS_RUNNING, Mailing.STATUS_COMPLETED]
-                ))
+            context["messages_success"] = user_attempt.filter(status="success").count()
+            context["messages_failure"] = user_attempt.filter(status="failure").count()
+            context["sent_mailings_success"] = (
+                user_attempt.filter(status="success")
+                .values("run_id")
+                .distinct()
+                .order_by()
+                .count()
             )
-            context["sent_mailings_success"] = user_attempt_stats["success_all"]
-            context["sent_mailings_error"] = user_attempt_stats["failure_all"]
-            context["messages_success"] = user_attempt_stats["success_filtered"]
+            context["sent_mailings_error"] = (
+                user_attempt.filter(status="failure")
+                .values("run_id")
+                .distinct()
+                .order_by()
+                .count()
+            )
 
         else:
             context["recipients_all"] = 0
@@ -89,13 +95,13 @@ class MainPageView(TemplateView):
         return context
 
 
-@method_decorator(cache_page(60 * 5), name="dispatch")
+# @method_decorator(cache_page(60 * 5), name="dispatch")
 class RecipientListView(ListView):
     """ Класс представления списка получателей рассылки (клиентов) """
     model = Recipient
     template_name = "mailing_service/recipients_list.html"
     context_object_name = "page_object"
-    paginate_by = 10
+    paginate_by = 20
     ordering = ["created_at"]
 
     def get_queryset(self):
@@ -154,13 +160,13 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
-@method_decorator(cache_page(600), name="dispatch")
+# @method_decorator(cache_page(600), name="dispatch")
 class MessageListView(ListView):
     """ Класс просмотра списка сообщений """
     model = Message
     template_name = "mailing_service/messages_list.html"
     context_object_name = "page_object"
-    paginate_by = 10
+    paginate_by = 20
     ordering = ["created_at"]
 
     def get_queryset(self):
@@ -221,14 +227,13 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
-@method_decorator(cache_page(600), name="dispatch")
+# @method_decorator(cache_page(600), name="dispatch")
 class MailingListView(ListView):
     """ Класс просмотра списка рассылок """
     model = Mailing
     template_name = "mailing_service/mailings_list.html"
     context_object_name = "page_object"
-    paginate_by = 10
-    ordering = ["created_at"]
+    paginate_by = 20
 
     def get_queryset(self):
         """ Вывод списка получателей рассылки как владельца или как администратора с обновлением статуса """
@@ -240,7 +245,7 @@ class MailingListView(ListView):
         for mailing in queryset:
             mailing.update_status()
 
-        return queryset.order_by("-created_at")
+        return queryset.order_by("-end_time")
 
 
 class MailingDetailView(DetailView):
@@ -272,7 +277,7 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
         form = super().get_form(form_class)
         if not self.request.user.is_superuser:
             form.fields["message"].queryset = Message.objects.filter(owner=self.request.user)
-            form.fields["recipients"].queryset = Message.objects.filter(owner=self.request.user)
+            form.fields["recipients"].queryset = Recipient.objects.filter(owner=self.request.user)
 
         return form
 
@@ -283,7 +288,7 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class MailingUpdateView(LoginRequiredMixin, UpdateView):
+class MailingUpdateView(UpdateView):
     """ Класс редактирования рассылки """
     model = Mailing
     form_class = MailingForm
