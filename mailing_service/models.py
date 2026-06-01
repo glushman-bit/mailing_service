@@ -180,6 +180,13 @@ class MailingAttempt(models.Model):
         null=True,
         verbose_name="Ответ почтового сервера",
     )
+    run_id = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        db_index=True,
+        verbose_name="ID запуска рассылки"
+    )
 
     class Meta:
         verbose_name = "Попытка рассылки"
