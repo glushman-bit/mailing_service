@@ -4,12 +4,13 @@ from django.db.models import Count, Q
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.utils import timezone
+from django.utils import timezone, cache
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_page
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
+from django.core.cache import cache
 from mailing_service.forms import MailingForm, MessageForm, RecipientForm
 from mailing_service.models import Mailing, MailingAttempt, Message, Recipient
 from mailing_service.services import start_mailing
@@ -84,7 +85,6 @@ class MainPageView(TemplateView):
         return context
 
 
-# @method_decorator(cache_page(60 * 5), name="dispatch")
 class RecipientListView(ListView):
     """Класс представления списка получателей рассылки (клиентов)"""
 
@@ -96,12 +96,29 @@ class RecipientListView(ListView):
 
     def get_queryset(self):
         """Вывод списка получателей рассылки как владельца или как администратора"""
-        if self.request.user.is_superuser or self.request.user.is_staff:
-            return Recipient.objects.all()
+        user = self.request.user
 
-        return Recipient.objects.filter(owner=self.request.user)
+        if user.is_superuser or user.is_staff:
+            cache_key = "recipients_list_admin"
+            print("admin")
+        else:
+            cache_key = f"recipients_list_user_{user.id}"
+
+        queryset = cache.get(cache_key)
+
+        if queryset is None:
+            if user.is_superuser or user.is_staff:
+                queryset = Recipient.objects.all().order_by("owner")
+            else:
+                queryset = Recipient.objects.filter(owner=user)
+
+            cache.set(cache_key, queryset, 300)
+        print("111111111111")
+
+        return queryset
 
 
+@method_decorator(cache_page(60 * 5), name="dispatch")
 class RecipientDetailView(DetailView):
     """Класс представления детальной информации о получателе рассылки (клиенте)"""
 
@@ -154,7 +171,6 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
-# @method_decorator(cache_page(600), name="dispatch")
 class MessageListView(ListView):
     """Класс просмотра списка сообщений"""
 
@@ -166,11 +182,28 @@ class MessageListView(ListView):
 
     def get_queryset(self):
         """Вывод списка получателей рассылки как владельца или как администратора"""
-        if self.request.user.is_superuser or self.request.user.is_staff:
-            return Message.objects.all()
-        return Message.objects.filter(owner=self.request.user)
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            cache_key = "message_list_admin"
+
+        else:
+            cache_key = f"message_list_user_{user.id}"
+
+        queryset = cache.get(cache_key)
+
+        if queryset is None:
+            if user.is_superuser or user.is_staff:
+                queryset = Message.objects.all().order_by("owner")
+            else:
+                queryset = Message.objects.filter(owner=user)
+
+            cache.set(cache_key, queryset, 300)
 
 
+        return queryset
+
+@method_decorator(cache_page(60 * 5), name="dispatch")
 class MessageDetailView(DetailView):
     """Класс просмотра деталей сообщении"""
 
@@ -226,7 +259,6 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
     }
 
 
-# @method_decorator(cache_page(600), name="dispatch")
 class MailingListView(ListView):
     """Класс просмотра списка рассылок"""
 
@@ -238,7 +270,7 @@ class MailingListView(ListView):
     def get_queryset(self):
         """Вывод списка получателей рассылки как владельца или как администратора с обновлением статуса"""
         if self.request.user.is_superuser or self.request.user.is_staff:
-            queryset = Mailing.objects.all()
+            queryset = Mailing.objects.all().order_by("owner")
         else:
             queryset = Mailing.objects.filter(owner=self.request.user)
 
@@ -248,6 +280,7 @@ class MailingListView(ListView):
         return queryset.order_by("-end_time")
 
 
+@method_decorator(cache_page(60 * 5), name="dispatch")
 class MailingDetailView(DetailView):
     """Класс просмотра деталей о рассылке"""
 
