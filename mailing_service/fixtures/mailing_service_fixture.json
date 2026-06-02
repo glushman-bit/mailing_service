@@ -1,0 +1,3746 @@
+[
+{
+    "model": "mailing_service.recipient",
+    "pk": 2,
+    "fields": {
+        "email": "recived_test_2@example.com",
+        "full_name": "Петров Петр Петрович",
+        "comment": "Просто коммент",
+        "created_at": "2026-05-25T18:00:24Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 3,
+    "fields": {
+        "email": "recived_test_3@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Подрядчик",
+        "created_at": "2026-05-26T20:54:16.716Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 4,
+    "fields": {
+        "email": "recived_test_4@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Подрядчик",
+        "created_at": "2026-05-26T20:54:40.699Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 6,
+    "fields": {
+        "email": "Librarian_2@example.com",
+        "full_name": "Петров Иван Иванович",
+        "comment": "Субподрядчик",
+        "created_at": "2026-05-26T20:57:42.039Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 7,
+    "fields": {
+        "email": "i_glush@list.ru",
+        "full_name": "Глушенков Иван Александрович",
+        "comment": "Клиент для проверки рассылки",
+        "created_at": "2026-05-30T09:25:18.303Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 8,
+    "fields": {
+        "email": "iv_glush@list.ru",
+        "full_name": "Глушенков Александр Александрович",
+        "comment": "Еще один тест",
+        "created_at": "2026-05-30T15:38:29.051Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 9,
+    "fields": {
+        "email": "recived_test_2_i_glush@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Подрядчик 2",
+        "created_at": "2026-05-31T10:16:27.652Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 10,
+    "fields": {
+        "email": "recived_test_1_i_glush@example.com",
+        "full_name": "Иванов Иван Иванович",
+        "comment": "Подрядчик 1",
+        "created_at": "2026-05-31T10:16:59.670Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 11,
+    "fields": {
+        "email": "recived_test_3_i_glush@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Подрядчик 3",
+        "created_at": "2026-05-31T10:17:45.453Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 12,
+    "fields": {
+        "email": "recived_test_1_utest_1@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Worker",
+        "created_at": "2026-05-31T11:01:13.590Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 13,
+    "fields": {
+        "email": "recived_test_2_utest_1@example.com",
+        "full_name": "Петров Петр Петрович",
+        "comment": "Worker 2",
+        "created_at": "2026-05-31T11:01:30.025Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 14,
+    "fields": {
+        "email": "recived_test_3_utest_1@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "Worker 3",
+        "created_at": "2026-05-31T11:01:45.274Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 15,
+    "fields": {
+        "email": "recived_test_4_utest_1@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "комент",
+        "created_at": "2026-05-31T20:17:04.537Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 16,
+    "fields": {
+        "email": "recived_test_5_utest_1@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "5_utest_1@example.com",
+        "created_at": "2026-06-01T21:30:18.280Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 17,
+    "fields": {
+        "email": "recived_test_1_admin@example.com",
+        "full_name": "Иванов Иван Палыч",
+        "comment": "recived_test_1_admin@example.com",
+        "created_at": "2026-06-01T21:36:44.253Z",
+        "owner": 50
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 18,
+    "fields": {
+        "email": "recived_test_2_admin@example.com",
+        "full_name": "Петров Петр Петрович",
+        "comment": "recived_test_2_admin@example.com",
+        "created_at": "2026-06-01T21:38:17.146Z",
+        "owner": 50
+    }
+},
+{
+    "model": "mailing_service.recipient",
+    "pk": 19,
+    "fields": {
+        "email": "recived_test_1_iii_glush@example.com",
+        "full_name": "Петров Петр Петрович",
+        "comment": "recived_test_1_i_glush@example.com",
+        "created_at": "2026-06-01T21:47:42.118Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 1,
+    "fields": {
+        "title": "Скидка 20%  !!!!",
+        "content": "Скидка 20% на всю продукцию нашего магазина.",
+        "created_at": "2026-05-25T16:09:15Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 2,
+    "fields": {
+        "title": "Новое письмо №1",
+        "content": "Сообщение письма №1..!",
+        "created_at": "2026-05-26T20:53:27.078Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 3,
+    "fields": {
+        "title": "Новое письмо №2",
+        "content": "Новое сообщение о чем бы то ни было.",
+        "created_at": "2026-05-27T15:30:20.387Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 4,
+    "fields": {
+        "title": "Новое письмо №3",
+        "content": "Новое сообщение №3",
+        "created_at": "2026-05-27T15:36:56.638Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 5,
+    "fields": {
+        "title": "Письмо №4",
+        "content": "Сообщение №4",
+        "created_at": "2026-05-27T15:37:16.733Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 6,
+    "fields": {
+        "title": "Тема письма №5",
+        "content": "Новое сообщение письма №5",
+        "created_at": "2026-05-27T15:37:46.915Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 7,
+    "fields": {
+        "title": "Письмо от i_glush #1",
+        "content": "Тело письма №1",
+        "created_at": "2026-05-31T10:07:16.355Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 8,
+    "fields": {
+        "title": "Письмо от i_glush №2",
+        "content": "Сообщение письма №2",
+        "created_at": "2026-05-31T10:10:56.517Z",
+        "owner": null
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 9,
+    "fields": {
+        "title": "Письмо от i_glush №3",
+        "content": "Сообщение письма №3",
+        "created_at": "2026-05-31T10:12:22.861Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 10,
+    "fields": {
+        "title": "Письмо от i_glush №4",
+        "content": "Сообщение письма №4",
+        "created_at": "2026-05-31T10:13:14.006Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 11,
+    "fields": {
+        "title": "Письмо от recived_test_1",
+        "content": "Сообщение письма",
+        "created_at": "2026-05-31T11:02:31.367Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 12,
+    "fields": {
+        "title": "Письмо №2 от recived_test_1",
+        "content": "Сообщение письма №2",
+        "created_at": "2026-05-31T11:03:00.965Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 13,
+    "fields": {
+        "title": "Письмо №3 от recived_test_1",
+        "content": "Сообщение письма №3",
+        "created_at": "2026-05-31T11:03:19.559Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 14,
+    "fields": {
+        "title": "Письмо №1 iv_glush",
+        "content": "Сообщение письма №1",
+        "created_at": "2026-05-31T16:00:16.108Z",
+        "owner": 48
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 15,
+    "fields": {
+        "title": "тема письма test_1",
+        "content": "тема письма test_1",
+        "created_at": "2026-06-01T21:32:26.114Z",
+        "owner": 54
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 16,
+    "fields": {
+        "title": "Письмо №1 Admin",
+        "content": "Письмо №1 Admin",
+        "created_at": "2026-06-01T21:35:43.950Z",
+        "owner": 50
+    }
+},
+{
+    "model": "mailing_service.message",
+    "pk": 17,
+    "fields": {
+        "title": "Письмо №6 i_glush",
+        "content": "Письмо №6 i_glush",
+        "created_at": "2026-06-01T21:48:35.097Z",
+        "owner": 53
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 2,
+    "fields": {
+        "start_time": "2026-05-30T20:00:00Z",
+        "end_time": "2026-06-01T04:03:00Z",
+        "status": "Завершена",
+        "message": 1,
+        "created_at": "2026-05-26T20:45:53Z",
+        "owner": 50,
+        "recipients": [
+            4,
+            7,
+            2,
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 3,
+    "fields": {
+        "start_time": "2026-05-30T17:00:00Z",
+        "end_time": "2026-06-05T17:42:00Z",
+        "status": "Запущена",
+        "message": 1,
+        "created_at": "2026-05-26T20:52:38Z",
+        "owner": 50,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 4,
+    "fields": {
+        "start_time": "2026-05-26T23:00:00Z",
+        "end_time": "2026-05-31T02:00:00Z",
+        "status": "Завершена",
+        "message": 2,
+        "created_at": "2026-05-26T20:59:00.793Z",
+        "owner": null,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 5,
+    "fields": {
+        "start_time": "2026-05-30T19:00:00Z",
+        "end_time": "2026-05-31T02:00:00Z",
+        "status": "Завершена",
+        "message": 2,
+        "created_at": "2026-05-26T21:09:14Z",
+        "owner": null,
+        "recipients": [
+            2,
+            7
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 7,
+    "fields": {
+        "start_time": "2026-05-27T13:30:00Z",
+        "end_time": "2026-05-27T17:30:00Z",
+        "status": "Завершена",
+        "message": 2,
+        "created_at": "2026-05-27T15:28:42.425Z",
+        "owner": null,
+        "recipients": [
+            2
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 8,
+    "fields": {
+        "start_time": "2026-05-27T16:00:00Z",
+        "end_time": "2026-05-27T18:00:00Z",
+        "status": "Завершена",
+        "message": 3,
+        "created_at": "2026-05-27T15:33:22.953Z",
+        "owner": null,
+        "recipients": [
+            7
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 9,
+    "fields": {
+        "start_time": "2026-05-27T15:40:00Z",
+        "end_time": "2026-05-27T19:40:00Z",
+        "status": "Завершена",
+        "message": 4,
+        "created_at": "2026-05-27T15:38:43.118Z",
+        "owner": null,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 10,
+    "fields": {
+        "start_time": "2026-05-30T06:15:00Z",
+        "end_time": "2026-05-30T11:21:00Z",
+        "status": "Завершена",
+        "message": 2,
+        "created_at": "2026-05-30T06:16:16.252Z",
+        "owner": null,
+        "recipients": [
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 11,
+    "fields": {
+        "start_time": "2026-05-30T10:20:00Z",
+        "end_time": "2026-06-04T20:20:00Z",
+        "status": "Запущена",
+        "message": 3,
+        "created_at": "2026-05-30T06:17:06Z",
+        "owner": 50,
+        "recipients": [
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 12,
+    "fields": {
+        "start_time": "2026-05-31T10:14:00Z",
+        "end_time": "2026-05-31T20:28:00.258Z",
+        "status": "Завершена",
+        "message": 7,
+        "created_at": "2026-05-31T10:15:10.979Z",
+        "owner": 53,
+        "recipients": [
+            8
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 13,
+    "fields": {
+        "start_time": "2026-05-31T10:26:00Z",
+        "end_time": "2026-05-31T15:26:00Z",
+        "status": "Завершена",
+        "message": 8,
+        "created_at": "2026-05-31T10:26:32.898Z",
+        "owner": 53,
+        "recipients": [
+            8,
+            10,
+            6
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 14,
+    "fields": {
+        "start_time": "2026-05-31T15:03:00Z",
+        "end_time": "2026-06-03T20:29:00Z",
+        "status": "Запущена",
+        "message": 12,
+        "created_at": "2026-05-31T11:03:45.544Z",
+        "owner": 54,
+        "recipients": [
+            7
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 15,
+    "fields": {
+        "start_time": "2026-05-31T11:03:00Z",
+        "end_time": "2026-06-03T20:28:00Z",
+        "status": "Запущена",
+        "message": 12,
+        "created_at": "2026-05-31T11:04:05.610Z",
+        "owner": 54,
+        "recipients": [
+            8,
+            7
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 16,
+    "fields": {
+        "start_time": "2026-05-31T20:15:00Z",
+        "end_time": "2026-05-31T20:26:18.874Z",
+        "status": "Завершена",
+        "message": 7,
+        "created_at": "2026-05-31T20:16:00.400Z",
+        "owner": 53,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 17,
+    "fields": {
+        "start_time": "2026-05-31T20:19:00Z",
+        "end_time": "2026-05-31T20:26:10.120Z",
+        "status": "Завершена",
+        "message": 7,
+        "created_at": "2026-05-31T20:19:16.811Z",
+        "owner": 53,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 18,
+    "fields": {
+        "start_time": "2026-06-01T21:28:00Z",
+        "end_time": "2026-06-03T21:28:00Z",
+        "status": "Запущена",
+        "message": 11,
+        "created_at": "2026-06-01T21:28:30.249Z",
+        "owner": 54,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 19,
+    "fields": {
+        "start_time": "2026-06-01T21:28:00Z",
+        "end_time": "2026-06-03T21:28:00Z",
+        "status": "Запущена",
+        "message": 11,
+        "created_at": "2026-06-01T21:29:14.011Z",
+        "owner": 54,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 20,
+    "fields": {
+        "start_time": "2026-06-01T21:40:00Z",
+        "end_time": "2026-06-04T21:40:00Z",
+        "status": "Запущена",
+        "message": 16,
+        "created_at": "2026-06-01T21:40:38.297Z",
+        "owner": 50,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 21,
+    "fields": {
+        "start_time": "2026-06-01T21:49:00Z",
+        "end_time": "2026-06-02T21:49:00Z",
+        "status": "Запущена",
+        "message": 7,
+        "created_at": "2026-06-01T21:49:36.078Z",
+        "owner": 53,
+        "recipients": []
+    }
+},
+{
+    "model": "mailing_service.mailing",
+    "pk": 22,
+    "fields": {
+        "start_time": "2026-06-01T22:11:00Z",
+        "end_time": "2026-06-05T22:12:00Z",
+        "status": "Запущена",
+        "message": 11,
+        "created_at": "2026-06-01T22:12:04.543Z",
+        "owner": 54,
+        "recipients": [
+            13
+        ]
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 1,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T17:55:57.906Z",
+        "status": "Успешно",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 2,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:08:51.904Z",
+        "status": "Успешно",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 3,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:10:46.179Z",
+        "status": "Успешно",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 4,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:29:17.135Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 5,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:29:21.791Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 6,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:37:44.358Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 7,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:38:17.098Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 8,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:38:28.465Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 9,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:42:07.933Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 10,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:43:29.339Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 11,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:44:18.959Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 12,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:44:45.578Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 13,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:45:07.151Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 14,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:45:40.909Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 15,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:48:39.042Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 16,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:51:36.652Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 17,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T18:51:54.791Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 18,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:52:02.031Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 19,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:56:54.223Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 20,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T18:57:50.419Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 21,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:00:19.237Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 22,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:01:03.771Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 23,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:01:26.480Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 24,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:01:54.639Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 25,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:08:24.051Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 26,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:09:19.189Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 27,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:10:55.088Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 28,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:11:56.396Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 29,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:12:11.622Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 30,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:15:10.908Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 31,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:15:39.253Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 32,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:16:37.798Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 33,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:16:47.458Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 34,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:18:11.560Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 35,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T19:20:43.536Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 36,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:23:22.242Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 37,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:25:06.334Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 38,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:25:17.646Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 39,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:25:59.489Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 40,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:26:49.425Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 41,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:26:57.946Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 42,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:33:51.909Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 43,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T19:33:58.679Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 44,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:37:58.823Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 45,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:39:03.688Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 46,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:44:36.186Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 47,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:45:49.859Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 48,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T19:45:59.535Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 49,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T19:46:56.440Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 50,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:47:07.750Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 51,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T19:47:11.821Z",
+        "status": "failure",
+        "server_response": "{'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 52,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T19:47:36.413Z",
+        "status": "failure",
+        "server_response": "{'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 53,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T19:47:59.566Z",
+        "status": "failure",
+        "server_response": "{'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 54,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T19:51:08.172Z",
+        "status": "success",
+        "server_response": "(ЛОГ) Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 55,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T19:58:57.077Z",
+        "status": "failure",
+        "server_response": "(ЛОГ) Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 56,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T19:59:00.607Z",
+        "status": "failure",
+        "server_response": "{'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 57,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T19:59:07.692Z",
+        "status": "failure",
+        "server_response": "{'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 58,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:00:13.518Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 59,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T20:00:19.360Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 60,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T20:00:35.390Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 61,
+    "fields": {
+        "mailing": 9,
+        "attempt_time": "2026-05-30T20:00:39.939Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 62,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T20:00:48.329Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 63,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T20:00:50.487Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 64,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:00:53.301Z",
+        "status": "failure",
+        "server_response": "Ошибка: список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 65,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T20:00:56.465Z",
+        "status": "failure",
+        "server_response": "{'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 66,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T20:01:21.115Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 67,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:01:40.370Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 68,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:02:08.366Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 69,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:02:18.298Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 70,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:13:05.428Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 71,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T20:13:07.965Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 72,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T20:13:15.483Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 73,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T20:13:19.947Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 74,
+    "fields": {
+        "mailing": 10,
+        "attempt_time": "2026-05-30T20:13:24.426Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 75,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:14:02.722Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 76,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-30T20:14:05.510Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 77,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T20:14:08.886Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 78,
+    "fields": {
+        "mailing": 9,
+        "attempt_time": "2026-05-30T20:14:19.883Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 79,
+    "fields": {
+        "mailing": 7,
+        "attempt_time": "2026-05-30T20:14:23.521Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 80,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T20:14:26.844Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 81,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T20:14:37.923Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 82,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T20:14:42.788Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 83,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-30T22:48:22.334Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 84,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T22:48:35.607Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 85,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T22:48:53.508Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 86,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T22:55:38.331Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 87,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T23:07:26.635Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 88,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T23:07:35.265Z",
+        "status": "success",
+        "server_response": "Успешно отправлена на адрес: recived_test_2@example.com.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 89,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T23:07:36.090Z",
+        "status": "success",
+        "server_response": "Успешно отправлена на адрес: i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 90,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T23:08:22.469Z",
+        "status": "success",
+        "server_response": "Успешно отправлена на адрес: i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 91,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T23:08:23.380Z",
+        "status": "success",
+        "server_response": "Успешно отправлена на адрес: iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 92,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-30T23:17:45.246Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 93,
+    "fields": {
+        "mailing": 10,
+        "attempt_time": "2026-05-30T23:17:55.914Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 94,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T23:19:03.158Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 95,
+    "fields": {
+        "mailing": 5,
+        "attempt_time": "2026-05-30T23:19:16.890Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 96,
+    "fields": {
+        "mailing": 4,
+        "attempt_time": "2026-05-30T23:19:33.378Z",
+        "status": "failure",
+        "server_response": "{'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 97,
+    "fields": {
+        "mailing": 12,
+        "attempt_time": "2026-05-31T10:15:23.750Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 98,
+    "fields": {
+        "mailing": 12,
+        "attempt_time": "2026-05-31T10:15:23.751Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 99,
+    "fields": {
+        "mailing": 12,
+        "attempt_time": "2026-05-31T10:26:37.863Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 100,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-05-31T11:56:56.406Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 101,
+    "fields": {
+        "mailing": 13,
+        "attempt_time": "2026-05-31T15:26:27.088Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 102,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-05-31T15:27:47.516Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 103,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T19:51:47.924Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 104,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T19:52:27.428Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 105,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T20:30:23.439Z",
+        "status": "success",
+        "server_response": "Рассылка успешно отправлена получателям.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 106,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T20:46:22.884Z",
+        "status": "failure",
+        "server_response": "{'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 107,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-31T21:14:18.641Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 108,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T21:14:32.914Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 109,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T21:14:49.157Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 110,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T21:17:31.731Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 111,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T21:18:03.094Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 112,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-31T22:39:00.139Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 113,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T22:39:01.225Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 114,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T22:39:01.811Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 115,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-05-31T22:39:02.991Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 116,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-05-31T22:39:03.998Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 1 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 117,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-31T22:40:00.025Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 118,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T22:40:01.044Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 119,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T22:40:01.626Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 120,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-05-31T22:40:02.615Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 121,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-05-31T22:40:03.539Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 1 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 122,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-31T22:41:00.011Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 123,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T22:41:01.006Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 124,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T22:41:01.470Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 125,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-05-31T22:41:02.320Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 126,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-05-31T22:41:06.313Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 1 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 127,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-05-31T22:42:00.012Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 128,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-05-31T22:42:01.034Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 129,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-05-31T22:42:01.604Z",
+        "status": "failure",
+        "server_response": "Сбой отправки: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 130,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-05-31T22:42:02.621Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 2 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 131,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-05-31T22:42:03.553Z",
+        "status": "success",
+        "server_response": "Письма успешно отправлены на 1 адрес(ов).",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 132,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:27:20.130Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлены на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 133,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:27:20.130Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлены на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 134,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:29:43.088Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлены на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 135,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:29:43.088Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлены на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 136,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T17:32:14.347Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 137,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T17:33:04.207Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 138,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T17:34:22.383Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 139,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T17:41:55.248Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 140,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T17:43:54.080Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 141,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T17:44:30.540Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 142,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:46:30.432Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 143,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:46:30.432Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 144,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:46:49.300Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 145,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T17:46:49.300Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 146,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T18:05:47.533Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 147,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:05:53.994Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 148,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:05:53.994Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 149,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:08:52.091Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 150,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:08:52.091Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 151,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T18:08:55.912Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 152,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:09:03.854Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 153,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:09:29.251Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 154,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:11:22.082Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 155,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:11:30.293Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 156,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:11:30.293Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 157,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:18:55.976Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 158,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:19:18.195Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 159,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:19:18.195Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 160,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:37:09.664Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 161,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:37:09.664Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 162,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T18:37:31.469Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 163,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:37:55.856Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 164,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:37:55.856Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 165,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:47:45.707Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 166,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:47:45.707Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 167,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:48:27.542Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 168,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T18:48:27.542Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 169,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T18:54:39.072Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 170,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:54:49.080Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 171,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T18:54:49.080Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 172,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T19:00:55.194Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 173,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T19:39:21.850Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 174,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T19:39:21.850Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 175,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:03:17.381Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 176,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:03:17.381Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 177,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:12:41.742Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 178,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:12:41.742Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 179,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:20:01.372Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 180,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:20:01.372Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 181,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T20:22:17.611Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 182,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:30:43.863Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 183,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:30:43.863Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 184,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T20:33:32.857Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 185,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:34:02.921Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 186,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:34:02.921Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 187,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:34:35.057Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 188,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:34:35.057Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 189,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:35:14.418Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 190,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:35:14.418Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 191,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:38:15.350Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 192,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:38:15.350Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 193,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:38:15.350Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 194,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:38:15.350Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 195,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:38:15.350Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 196,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T20:39:33.251Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 197,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:40:07.814Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 198,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T20:40:07.814Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 199,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:40:57.164Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 200,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:40:57.164Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 201,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:40:57.164Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 202,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:40:57.164Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 203,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T20:40:57.164Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": null
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 204,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T21:15:43.465Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "2f17c3cd-f5c4-42d8-8189-3d4807ce2a59"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 205,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T21:16:15.906Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "e9831f04-6f76-458b-8be3-ad4b096c6295"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 206,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T21:16:44.729Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "c9119fc9-5bd7-4467-9fbd-15d721cb89ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 207,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T21:16:44.729Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "c9119fc9-5bd7-4467-9fbd-15d721cb89ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 208,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T21:18:08.191Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "0eb2b390-ebf2-4648-99c7-cd24102ff3fc"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 209,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T21:18:08.191Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "0eb2b390-ebf2-4648-99c7-cd24102ff3fc"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 210,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T21:18:08.191Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "0eb2b390-ebf2-4648-99c7-cd24102ff3fc"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 211,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T21:18:08.191Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "0eb2b390-ebf2-4648-99c7-cd24102ff3fc"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 212,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T21:18:08.191Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "0eb2b390-ebf2-4648-99c7-cd24102ff3fc"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 213,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-06-01T21:27:23.137Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "eccb3b32-68db-4532-9c5d-dd4da2ad82a5"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 214,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T21:27:46.685Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "4391f1cd-e858-44fa-a1d6-a01124e04fe3"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 215,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T21:27:46.685Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "4391f1cd-e858-44fa-a1d6-a01124e04fe3"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 216,
+    "fields": {
+        "mailing": 19,
+        "attempt_time": "2026-06-01T22:16:07.374Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "925dc9dc-ba12-4b6e-bc3d-259d5e8975be"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 217,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T22:30:00.102Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "2b4fc88a-2389-40e3-9d3c-ecc1a56002b1"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 218,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:30:03.578Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "473963ff-70ef-4d74-b2e4-edf0f0d86b4d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 219,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:30:03.578Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "473963ff-70ef-4d74-b2e4-edf0f0d86b4d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 220,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:30:03.578Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "473963ff-70ef-4d74-b2e4-edf0f0d86b4d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 221,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:30:03.578Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "473963ff-70ef-4d74-b2e4-edf0f0d86b4d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 222,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:30:03.578Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "473963ff-70ef-4d74-b2e4-edf0f0d86b4d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 223,
+    "fields": {
+        "mailing": 18,
+        "attempt_time": "2026-06-01T22:30:03.611Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "4b909b7d-ab93-4808-b5e0-682a9248cec9"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 224,
+    "fields": {
+        "mailing": 19,
+        "attempt_time": "2026-06-01T22:30:03.617Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "6be12733-a0de-47ed-a73c-473051c61f86"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 225,
+    "fields": {
+        "mailing": 20,
+        "attempt_time": "2026-06-01T22:30:04.103Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "19cc0498-ed53-4869-beb4-cec0972cfdee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 226,
+    "fields": {
+        "mailing": 21,
+        "attempt_time": "2026-06-01T22:30:04.137Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "a3f152db-2f01-4f57-88c6-de93436b7ed2"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 227,
+    "fields": {
+        "mailing": 22,
+        "attempt_time": "2026-06-01T22:30:04.705Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2_utest_1@example.com: {'recived_test_2_utest_1@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "5ba07d57-bbec-4621-8563-985029350ea0"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 228,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:30:06.856Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "9802dc16-beb6-46e1-87fd-e079bc593954"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 229,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:30:06.856Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "9802dc16-beb6-46e1-87fd-e079bc593954"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 230,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-06-01T22:30:07.887Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "954feefa-8769-41af-a649-5f0c8774b7bf"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 231,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:30:10.138Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "e16a6881-e358-4f94-a4dd-4546125b4244"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 232,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:30:10.138Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "e16a6881-e358-4f94-a4dd-4546125b4244"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 233,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T22:31:00.019Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "0dd1d834-b408-427e-9754-1400bbf7d0a8"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 234,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:31:03.274Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "96776b7a-3144-4976-ab26-7f7a7e827119"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 235,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:31:03.274Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "96776b7a-3144-4976-ab26-7f7a7e827119"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 236,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:31:03.274Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "96776b7a-3144-4976-ab26-7f7a7e827119"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 237,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:31:03.274Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "96776b7a-3144-4976-ab26-7f7a7e827119"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 238,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:31:03.274Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "96776b7a-3144-4976-ab26-7f7a7e827119"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 239,
+    "fields": {
+        "mailing": 18,
+        "attempt_time": "2026-06-01T22:31:03.308Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "f82f6f72-12ee-4b30-b0b9-cf03877ffd7b"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 240,
+    "fields": {
+        "mailing": 19,
+        "attempt_time": "2026-06-01T22:31:03.314Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "572d7755-c05c-4c7e-b110-7afd57958630"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 241,
+    "fields": {
+        "mailing": 20,
+        "attempt_time": "2026-06-01T22:31:03.848Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "eb6cbfa8-6496-4e04-8771-d5fcf4235d5f"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 242,
+    "fields": {
+        "mailing": 21,
+        "attempt_time": "2026-06-01T22:31:03.878Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "4768b1c9-cf94-4369-a155-4fe92e5bfca8"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 243,
+    "fields": {
+        "mailing": 22,
+        "attempt_time": "2026-06-01T22:31:04.346Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2_utest_1@example.com: {'recived_test_2_utest_1@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "a03969d3-7ac7-4f32-91eb-75d110b5cf5d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 244,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:31:06.440Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "83cd3c93-b390-41d1-acf5-cb25af6c7569"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 245,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:31:06.440Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "83cd3c93-b390-41d1-acf5-cb25af6c7569"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 246,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-06-01T22:31:07.477Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "1da52f0a-4e55-4a27-8038-06145215886f"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 247,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:31:09.530Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "47c89155-8078-4fba-89a6-eb4af468cbc5"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 248,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:31:09.530Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "47c89155-8078-4fba-89a6-eb4af468cbc5"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 249,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T22:32:00.018Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "505d11ca-be4d-4098-9503-e7f4113d3b49"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 250,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:32:02.969Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "765d7a81-6ac3-4716-a74b-dc166477987d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 251,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:32:02.969Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "765d7a81-6ac3-4716-a74b-dc166477987d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 252,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:32:02.969Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "765d7a81-6ac3-4716-a74b-dc166477987d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 253,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:32:02.969Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "765d7a81-6ac3-4716-a74b-dc166477987d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 254,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:32:02.969Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "765d7a81-6ac3-4716-a74b-dc166477987d"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 255,
+    "fields": {
+        "mailing": 18,
+        "attempt_time": "2026-06-01T22:32:03.000Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "fc7f7d04-f1e2-4b95-970c-5ba35e1904cf"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 256,
+    "fields": {
+        "mailing": 19,
+        "attempt_time": "2026-06-01T22:32:03.005Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "62f66e8e-2e3d-4abf-910d-c428b08c5f28"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 257,
+    "fields": {
+        "mailing": 20,
+        "attempt_time": "2026-06-01T22:32:03.500Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "0e7c941e-5787-4fb3-8b8d-c7c388be1a41"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 258,
+    "fields": {
+        "mailing": 21,
+        "attempt_time": "2026-06-01T22:32:03.534Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "c100de12-1b3f-4697-b759-89bcd977e649"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 259,
+    "fields": {
+        "mailing": 22,
+        "attempt_time": "2026-06-01T22:32:04.011Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2_utest_1@example.com: {'recived_test_2_utest_1@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "21414456-a552-490c-b8b7-ee2aa07fded2"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 260,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:32:06.160Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "a861e773-5846-4531-b3b4-f4699e537269"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 261,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:32:06.160Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "a861e773-5846-4531-b3b4-f4699e537269"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 262,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-06-01T22:32:07.287Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "b192a5dc-8853-4bfe-9636-47fb163d201f"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 263,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:32:09.459Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "c8b3f60f-2b01-46e3-a29c-5a64543b238f"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 264,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:32:09.459Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "c8b3f60f-2b01-46e3-a29c-5a64543b238f"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 265,
+    "fields": {
+        "mailing": 3,
+        "attempt_time": "2026-06-01T22:33:00.014Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "49a1b165-3b6e-489d-9669-9732a7f518b5"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 266,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:33:02.893Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_4@example.com: {'recived_test_4@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "dc8cc1da-1931-4e97-b65f-ae352286a7ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 267,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:33:02.893Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "dc8cc1da-1931-4e97-b65f-ae352286a7ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 268,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:33:02.893Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2@example.com: {'recived_test_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "dc8cc1da-1931-4e97-b65f-ae352286a7ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 269,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:33:02.893Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "dc8cc1da-1931-4e97-b65f-ae352286a7ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 270,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-01T22:33:02.893Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на Librarian_2@example.com: {'Librarian_2@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "dc8cc1da-1931-4e97-b65f-ae352286a7ee"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 271,
+    "fields": {
+        "mailing": 18,
+        "attempt_time": "2026-06-01T22:33:02.900Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "aefa6d13-3e9f-42b1-83e0-53833d622b2b"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 272,
+    "fields": {
+        "mailing": 19,
+        "attempt_time": "2026-06-01T22:33:02.905Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "89901a22-8534-4fdf-829d-0558632c1da7"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 273,
+    "fields": {
+        "mailing": 20,
+        "attempt_time": "2026-06-01T22:33:03.404Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_3@example.com: {'recived_test_3@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "c7fc35b0-2680-4ccb-826e-5925a42a19e3"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 274,
+    "fields": {
+        "mailing": 21,
+        "attempt_time": "2026-06-01T22:33:03.435Z",
+        "status": "failure",
+        "server_response": "Ошибка: Список получателей пуст.",
+        "run_id": "918e053d-adbc-4f04-8718-c3019e0333b9"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 275,
+    "fields": {
+        "mailing": 22,
+        "attempt_time": "2026-06-01T22:33:04.020Z",
+        "status": "failure",
+        "server_response": "Сбой отправки на recived_test_2_utest_1@example.com: {'recived_test_2_utest_1@example.com': (550, b'non-local recipient verification failed')}",
+        "run_id": "f075b8fc-4846-4478-aa1a-7ef422ef4f6c"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 276,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:33:06.376Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "0d2444f9-241f-4385-9287-cf04183e2f76"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 277,
+    "fields": {
+        "mailing": 15,
+        "attempt_time": "2026-06-01T22:33:06.376Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "0d2444f9-241f-4385-9287-cf04183e2f76"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 278,
+    "fields": {
+        "mailing": 14,
+        "attempt_time": "2026-06-01T22:33:07.302Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "09e6b9cf-6010-47c8-a4ae-790c71f606d0"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 279,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:33:09.345Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на i_glush@list.ru.",
+        "run_id": "39b33b42-807e-4acf-bc98-4d0af353b38a"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 280,
+    "fields": {
+        "mailing": 11,
+        "attempt_time": "2026-06-01T22:33:09.345Z",
+        "status": "success",
+        "server_response": "Письмо успешно отправлено на iv_glush@list.ru.",
+        "run_id": "39b33b42-807e-4acf-bc98-4d0af353b38a"
+    }
+},
+{
+    "model": "mailing_service.mailingattempt",
+    "pk": 281,
+    "fields": {
+        "mailing": 2,
+        "attempt_time": "2026-06-02T19:42:59.194Z",
+        "status": "failure",
+        "server_response": "Ошибка: Время не соответствует активности рассылки.",
+        "run_id": "e148744a-33c3-4e3c-8b3c-0a6ddf85cf20"
+    }
+}
+]
