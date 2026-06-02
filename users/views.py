@@ -16,6 +16,7 @@ from users.models import User
 
 class UserListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     """Класс просмотра списка пользователей сервиса для Администраторов и Менеджеров"""
+
     model = User
     template_name = 'users/users_list.html'
     context_object_name = 'users_list'
@@ -27,6 +28,7 @@ class UserListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     """Класс создания пользователя"""
+
     model = User
     form_class = UserRegistrationForm
     success_url = reverse_lazy('login')
@@ -51,6 +53,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
         return super().form_valid(form)
 
+
 def email_verification(request, token):
     """Вывод информации об успешной авторизации"""
     user = get_object_or_404(User, token=token)
@@ -63,6 +66,7 @@ def email_verification(request, token):
 
 class UserDetailView(DetailView):
     """Класс просмотра детальной информации о пользователе"""
+
     model = User
     template_name = 'users/profile.html'
     context_object_name = 'profile'
@@ -73,6 +77,7 @@ class UserDetailView(DetailView):
 
 class UserUpdateView(UpdateView):
     """Класс обновления информации о пользователи"""
+
     model = User
     form_class = UserProfileForm
     template_name = 'users/profile_form.html'

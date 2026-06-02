@@ -1,16 +1,16 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.cache import cache
 from django.db.models import Count, Q
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.utils import timezone, cache
+from django.utils import cache, timezone
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_page
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, TemplateView, UpdateView
 
-from django.core.cache import cache
 from mailing_service.forms import MailingForm, MessageForm, RecipientForm
 from mailing_service.models import Mailing, MailingAttempt, Message, Recipient
 from mailing_service.services import start_mailing
@@ -18,6 +18,7 @@ from mailing_service.services import start_mailing
 
 class MainPageView(TemplateView):
     """Класс вывода главной страницы с разграничением статистики администратора и пользователей"""
+
     template_name = "mailing_service/main_page.html"
 
     def get_queryset(self):
@@ -200,8 +201,8 @@ class MessageListView(ListView):
 
             cache.set(cache_key, queryset, 300)
 
-
         return queryset
+
 
 @method_decorator(cache_page(60 * 5), name="dispatch")
 class MessageDetailView(DetailView):
