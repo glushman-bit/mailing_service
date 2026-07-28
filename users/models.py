@@ -23,7 +23,11 @@ class User(AbstractUser):
         help_text="Введите номер телефона",
     )
     avatar = models.ImageField(
-        upload_to="users/avatar", verbose_name="Avatar", blank=True, null=True, help_text="Загрузить аватар"
+        upload_to="users/avatar",
+        verbose_name="Avatar", 
+        blank=True,
+        null=True,
+        help_text="Загрузить аватар"
     )
     country = CountryField(
         blank_label="Country",

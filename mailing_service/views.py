@@ -5,7 +5,7 @@ from django.db.models import Count, Q
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.utils import cache, timezone
+from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_page
@@ -101,7 +101,7 @@ class RecipientListView(ListView):
 
         if user.is_superuser or user.is_staff:
             cache_key = "recipients_list_admin"
-            print("admin")
+
         else:
             cache_key = f"recipients_list_user_{user.id}"
 
@@ -114,7 +114,6 @@ class RecipientListView(ListView):
                 queryset = Recipient.objects.filter(owner=user)
 
             cache.set(cache_key, queryset, 300)
-        print("111111111111")
 
         return queryset
 
