@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="col-md-9 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">
+                    {% if object_type == 'Recipient' %}
+
+                        {% if object %}
+                        <i class="bi bi-pencil-square text-primary me-2"></i>
+                        Редактирование данных о клиенте
+                        {% else %}
+                        <i class="bi bi-person-plus text-primary me-2"></i>
+                        Добавление нового клиента
+                        {% endif %}
+
+                    {% elif object_type == 'Message' %}
+
+                        {% if object %}
+                        <i class="bi bi-envelope-paper text-primary me-2"></i>
+                        Редактирование сообщения
+                        {% else %}
+                        <i class="bi bi-envelope-plus text-primary me-2"></i>
+                        Добавление нового сообщения
+                        {% endif %}
+
+                    {% elif object_type == 'Mailing' %}
+
+                        {% if object %}
+                        <i class="bi bi-send text-primary me-2"></i>
+                        Редактирование рассылки
+                        {% else %}
+                        <i class="bi bi-megaphone text-primary me-2"></i>
+                        Добавление новой рассылки
+                        {% endif %}
+
+                    {% endif %}
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <a class="btn btn-sm btn-outline-primary mt-5" href="{% url back_url %}">
+                        <i class="bi bi-reply me-1"> Назад</i>
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-outline-primary mt-5">
+                        {% if object %}
+                        <i class="bi bi-pencil-square me-1"> Сохранить</i>
+                        {% else %}
+                        <i class="bi bi-person-plus me-1"> Создать</i>
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

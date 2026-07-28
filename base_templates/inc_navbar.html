@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'mailing_service:main_page' %}" title="Главная страница">
+            <i class="bi bi-send-check-fill text-primary me-2 fs-2"></i>
+            <span class="fw-bold fs-2">Mailing Service</span>
+        </a>
+        <div class="align-content-center">
+            {% if user.is_authenticated %}
+            <b>Добро пожаловать, {{ user.email }}!</b>
+            <img src="{{ user.get_avatar_url }}" class="img-fluid rounded-circle shadow"  width="40px" alt="def">
+            {% else %}
+            <b>Добро пожаловать на сайт!</b>
+            {% endif %}
+        </div>
+        <div>
+
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'users:logout' %}" style="display: inline">
+                {% csrf_token %}
+                <button type="submit" class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end">Выйти</button>
+                <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:profile' %}">Личный кабинет</a>
+                {% if user.is_superuser or user.groups.all.0.name == 'Менеджеры' %}
+                    <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:users_list' %}">Пользователи</a>
+                {% endif %}
+            </form>
+            {% else %}
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'login' %}">Войти</a>
+            <a class="ms-2 ml-2 btn btn-outline-primary align-content-lg-end" href="{% url 'users:register' %}">Регистрация</a>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>

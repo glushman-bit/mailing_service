@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="col-md-9 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h5 class="my-0 font-weight-normal">
+                    <i class="bi bi-trash text-bg-danger me-1"></i>
+                    Удаление данных
+                </h5>
+            </div>
+
+            <div class="card-body">
+                <p class="card-text m-md-4"><strong>Вы уверены, что хотите удалить:</strong></p>
+                {% if object_type == 'Recipient' %}
+                    <p class="mb-2 m-md-2">Клиент:</p>
+                    <p class="mb-2 m-md-2">{{ object.full_name }}</p>
+                    <p class="mb-2 m-md-2 mb-lg-5">{{ object.email }}</p>
+
+                {% elif object_type == 'Message' %}
+                    <p class="mb-2 m-md-2">Сообщение:</p>
+                    <p class="mb-2 m-md-2">{{ object.title }}</p>
+                    <p class="mb-2 m-md-2 mb-lg-5">{{ object.content }}</p>
+
+                {% elif object_type == 'Mailing' %}
+                    <p class="mb-2 m-md-2">Рассылка:</p>
+                    <p class="mb-2 m-md-2">{{ object.message }}</p>
+                    <p class="mb-2 m-md-2 mb-lg-5">{{ object.status }}</p>
+
+                {% endif %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <a class="btn btn-sm btn-outline-primary" href="{% url back_url %}">
+                        <i class="bi bi-reply me-1"> Назад</i>
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        <i class="bi bi-trash me-1"> Да, уверен</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

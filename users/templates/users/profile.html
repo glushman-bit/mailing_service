@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Личный кабинет</h3>
+                </div>
+                <div class="card-body">
+
+                    <table class="table table-borderless align-middle mb-5 w-100">
+                    <tbody>
+                        <tr><th><img class="img-fluid rounded-4 shadow" src="{{ object.get_avatar_url }}" width="300" alt="def"></th></tr>
+                        <tr><th class="text-secondary">Email:</th><td>{{ object.email }}</td></tr>
+                        <tr><th class="text-secondary">Телефон:</th><td>{{ object.phone_number }}</td></tr>
+                    </tbody>
+                    </table>
+                    <a href="{% url 'users:profile_update' %}" class="btn btn-primary">Изменить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

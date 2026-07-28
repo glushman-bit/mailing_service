@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-6 fw-medium">Информация о получателе рассылки</h1>
+</div>
+
+<div class="container">
+    <div class="col">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-borderless align-middle mb-5">
+                    <tbody>
+                        <tr>
+                            <th class="text-secondary" style="width: 220px;">Имя</th>
+                            <td>{{ recipient.full_name }}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Email</th>
+                            <td><i class="bi bi-envelope me-1 text-primary"></i>{{ recipient.email }}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Комментарий</th>
+                            <td>{{ recipient.comment }}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-secondary">Дата создания</th>
+                            <td>{{ recipient.created_at|date:"d.m.Y H:i" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <a class="btn btn-sm btn-outline-primary" href="{% url 'mailing_service:recipients_list' %}">
+                        <i class="bi bi-reply me-1"> Назад</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

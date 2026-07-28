@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'mailing_service/includes/mailings_header.html' %}
+
+<div class="container mb-5">
+    <a class="btn btn-sm btn-outline-primary mb-lg-4" href="{% url 'mailing_service:mailing_create' %}">
+        <i class="bi bi-envelope me-1 fs-6"> Добавить рассылку</i>
+    </a>
+    <div class="card shadow-sm border-0 mb-3">
+        {% for mailing in object_list %}
+
+            <div class="card-body row align-items-center py-3">
+                <span class="col-1 text-center" style="color: #ffc107">
+                    #{{ page_obj.start_index|add:forloop.counter0 }}
+                </span>
+                <div class="col-3">
+                    <h5 class="mb-1 fw-semibold">
+                        <i class="bi bi-send text-primary me-2"></i>
+                        {{ mailing.message }}</h5>
+                </div>
+                <div class="col-2">
+                    <p class="mb-0">статус:</p>
+                    {% if mailing.status == 'Создана' %}
+                    <b class="badge rounded-pill bg-secondary"> {{ mailing.status }}</b>
+                    {% elif mailing.status == 'Запущена' %}
+                    <b class="badge rounded-pill bg-success"> {{ mailing.status }}</b>
+                    {% elif mailing.status == 'Завершена' %}
+                    <b class="badge rounded-pill bg-danger"> {{ mailing.status }}</b>
+                    {% endif %}
+                </div>
+                <div class="card-body col-4">
+                    <p class="mb-0 text-secondary">Период рассылки:</p>
+                    <p class="mb-0 text-secondary">
+                        <i class="bi bi-clock-history text-primary me-2"></i>
+                        {{ mailing.start_time|date:"d.m.Y H:i" }} - {{ mailing.end_time|date:"d.m.Y H:i" }}</p>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="d-inline-flex align-items-center">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-outline-primary" href="{% url 'mailing_service:mailing_detail' mailing.pk %}" title="подробнее">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            {% if user == mailing.owner %}
+                            <a class="btn btn-outline-secondary" href="{% url 'mailing_service:mailing_update' mailing.pk %}" title="редактировать">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btn btn-outline-danger" href="{% url 'mailing_service:mailing_delete' mailing.pk %}" title="удалить">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                        {% if user == mailing.owner %}
+                        <form method="post" enctype="multipart/form-data" action="{% url 'mailing_service:send_start' mailing.pk %}" class="ms-1">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-outline-primary" title="запустить рассылку">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </form>
+                        {% endif %}
+                        {% if user == mailing.owner or perms.mailing.can_disable_distribution or user.is_superuser %}
+                            {% if mailing.status != 'Завершена' %}
+                                <form method="post" enctype="multipart/form-data" action="{% url 'mailing_service:toggle_mailing' mailing.pk %}" class="ms-1">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" title="отменить рассылку">
+                                        <i class="bi bi-send-exclamation"></i>
+                                    </button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'mailing_service/includes/inc_page.html' %}
+{% endblock %}
