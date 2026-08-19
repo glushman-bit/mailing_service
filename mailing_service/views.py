@@ -141,9 +141,16 @@ class RecipientCreateView(LoginRequiredMixin, CreateView):
     }
 
     def form_valid(self, form):
-        """Автоматическая привязка пользователя как владельца получателя рассылки"""
+        """Автоматическая привязка пользователя как владельца получателя рассылки.
+        Обновление кэша при создании получателя рассылки."""
+
         form.instance.owner = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+
+        cache.delete(f"recipients_list_user_{self.request.user.id}")
+        cache.delete("recipients_list_admin")
+
+        return response
 
 
 class RecipientUpdateView(LoginRequiredMixin, UpdateView):
@@ -158,6 +165,17 @@ class RecipientUpdateView(LoginRequiredMixin, UpdateView):
         "object_type": "Recipient",
     }
 
+    def form_valid(self, form):
+        """Обновление кэша при изменении получателя рассылки."""
+
+        owner_id = self.object.owner.id
+        response = super().form_valid(form)
+
+        cache.delete(f"recipients_list_user_{owner_id}")
+        cache.delete("recipients_list_admin")
+
+        return response
+
 
 class RecipientDeleteView(LoginRequiredMixin, DeleteView):
     """Класс удаления получателей рассылки (клиентов)"""
@@ -169,6 +187,18 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
         "back_url": "mailing_service:recipients_list",
         "object_type": "Recipient",
     }
+
+    def form_valid(self, form):
+        """Обновление кэша при удалении получателя рассылки."""
+
+        owner_id = self.object.owner.id
+
+        response = super().form_valid(form)
+
+        cache.delete(f"recipients_list_user_{owner_id}")
+        cache.delete("recipients_list_admin")
+
+        return response
 
 
 class MessageListView(ListView):
@@ -226,12 +256,16 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
     }
 
     def form_valid(self, form):
-        """Создание текущего пользователя как владельца сообщения"""
-        messages = form.save()
-        user = self.request.user
-        messages.owner = user
-        messages.save()
-        return super().form_valid(form)
+        """Автоматическая привязка сообщения к владельцу.
+        Обновление кэша при создании сообщения."""
+
+        form.instance.owner = self.request.user
+        response = super().form_valid(form)
+
+        cache.delete(f"message_list_user_{self.request.user.id}")
+        cache.delete("message_list_admin")
+
+        return response
 
 
 class MessageUpdateView(LoginRequiredMixin, UpdateView):
@@ -246,6 +280,17 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
         "object_type": "Message",
     }
 
+    def form_valid(self, form):
+        """Обновление кэша при изменении сообщения."""
+
+        owner_id = self.object.owner.id
+        response = super().form_valid(form)
+
+        cache.delete(f"message_list_user_{owner_id}")
+        cache.delete("message_list_admin")
+
+        return response
+
 
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
     """Класс удаления сообщения"""
@@ -257,6 +302,18 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
         "back_url": "mailing_service:messages_list",
         "object_type": "Message",
     }
+
+    def form_valid(self, form):
+        """Обновление кэша при удалении получателя рассылки."""
+
+        owner_id = self.object.owner.id
+
+        response = super().form_valid(form)
+
+        cache.delete(f"message_list_user_{owner_id}")
+        cache.delete("message_list_admin")
+
+        return response
 
 
 class MailingListView(ListView):
