@@ -92,7 +92,7 @@ class RecipientListView(ListView):
     model = Recipient
     template_name = "mailing_service/recipients_list.html"
     context_object_name = "page_object"
-    paginate_by = 20
+    paginate_by = 10
     ordering = ["created_at"]
 
     def get_queryset(self):
@@ -126,6 +126,16 @@ class RecipientDetailView(DetailView):
     template_name = "mailing_service/recipient_detail.html"
     context_object_name = "recipient"
     success_url = reverse_lazy("mailing_service:recipients_list")
+
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Recipient.objects.all()
+
+        return Recipient.objects.filter(owner=user)
 
 
 class RecipientCreateView(LoginRequiredMixin, CreateView):
@@ -165,6 +175,16 @@ class RecipientUpdateView(LoginRequiredMixin, UpdateView):
         "object_type": "Recipient",
     }
 
+    def get_request(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Recipient.objects.all()
+
+        return Recipient.objects.filter(owner=user)
+
     def form_valid(self, form):
         """Обновление кэша при изменении получателя рассылки."""
 
@@ -188,6 +208,16 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
         "object_type": "Recipient",
     }
 
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Recipient.objects.all()
+
+        return Recipient.objects.filter(owner=user)
+
     def form_valid(self, form):
         """Обновление кэша при удалении получателя рассылки."""
 
@@ -207,7 +237,7 @@ class MessageListView(ListView):
     model = Message
     template_name = "mailing_service/messages_list.html"
     context_object_name = "page_object"
-    paginate_by = 20
+    paginate_by = 10
     ordering = ["created_at"]
 
     def get_queryset(self):
@@ -241,6 +271,16 @@ class MessageDetailView(DetailView):
     template_name = "mailing_service/message_detail.html"
     context_object_name = "message"
     success_url = reverse_lazy("mailing_service:messages_list")
+
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Message.objects.all()
+
+        return Message.objects.filter(owner=user)
 
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
@@ -280,6 +320,16 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
         "object_type": "Message",
     }
 
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Message.objects.all()
+
+        return Message.objects.filter(owner=user)
+
     def form_valid(self, form):
         """Обновление кэша при изменении сообщения."""
 
@@ -303,6 +353,16 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
         "object_type": "Message",
     }
 
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Message.objects.all()
+
+        return Message.objects.filter(owner=user)
+
     def form_valid(self, form):
         """Обновление кэша при удалении получателя рассылки."""
 
@@ -322,10 +382,11 @@ class MailingListView(ListView):
     model = Mailing
     template_name = "mailing_service/mailings_list.html"
     context_object_name = "page_object"
-    paginate_by = 20
+    paginate_by = 10
 
     def get_queryset(self):
         """Вывод списка получателей рассылки как владельца или как администратора с обновлением статуса"""
+
         if self.request.user.is_superuser or self.request.user.is_staff:
             queryset = Mailing.objects.all().order_by("owner")
         else:
@@ -345,8 +406,19 @@ class MailingDetailView(DetailView):
     template_name = "mailing_service/mailing_detail.html"
     context_object_name = "mailing"
 
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Mailing.objects.all()
+
+        return Mailing.objects.filter(owner=user)
+
     def get_object(self, queryset=None):
         """Обновление статуса в детализации рассылки"""
+
         obj = super().get_object(queryset)
         obj.update_status()
         return obj
@@ -391,6 +463,16 @@ class MailingUpdateView(UpdateView):
         "object_type": "Mailing",
     }
 
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Mailing.objects.all()
+
+        return Mailing.objects.filter(owner=user)
+
 
 class MailingDeleteView(LoginRequiredMixin, DeleteView):
     """Класс удаления рассылки"""
@@ -402,6 +484,16 @@ class MailingDeleteView(LoginRequiredMixin, DeleteView):
         "back_url": "mailing_service:mailings_list",
         "object_type": "Mailing",
     }
+
+    def get_queryset(self):
+        """Ограничение доступа на уровне queryset."""
+
+        user = self.request.user
+
+        if user.is_superuser or user.is_staff:
+            return Mailing.objects.all()
+
+        return Mailing.objects.filter(owner=user)
 
 
 class MailingStartView(View):
