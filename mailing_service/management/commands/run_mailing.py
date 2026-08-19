@@ -7,7 +7,7 @@ from django.utils import timezone
 from django_apscheduler.jobstores import DjangoJobStore
 
 from config import settings
-from mailing_service.models import Mailing
+from mailing_service.models import Mailing, MailingAttempt
 from mailing_service.services import start_mailing
 
 logger = logging.getLogger(__name__)
@@ -20,10 +20,20 @@ def run_mailing():
     active_mailings = Mailing.objects.filter(
         start_time__lte=now,
         end_time__gte=now,
-    ).exclude(status='Завершена')
+    )
 
     for mailing in active_mailings:
+
+        already_sent = MailingAttempt.objects.filter(
+            mailing=mailing,
+            status="success",
+        ).exists()
+
+        if already_sent:
+            continue
+
         logger.info(f"Запуск автоматической отправки рассылки ID {mailing.id}")
+
         start_mailing(mailing)
 
 
@@ -36,7 +46,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             run_mailing,
-            trigger=CronTrigger(second=0),
+            trigger=CronTrigger(minute="*/5"),
             id="run_mailing",
             max_instances=1,
             replace_existing=True,
