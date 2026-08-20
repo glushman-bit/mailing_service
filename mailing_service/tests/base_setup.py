@@ -3,7 +3,7 @@ from datetime import timedelta
 from django.test import TestCase
 from django.utils import timezone
 
-from mailing_service.models import Recipient, Message, Mailing
+from mailing_service.models import Mailing, Message, Recipient
 from users.models import User
 
 

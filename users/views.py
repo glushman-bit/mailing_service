@@ -91,10 +91,7 @@ class ToggleUserActiveView(LoginRequiredMixin, UserPassesTestMixin, View):
 
     def test_func(self):
         """Разрешение действия только для суперпользователя или персонала"""
-        return (
-                self.request.user.is_superuser
-                or self.request.user.is_staff
-        )
+        return self.request.user.is_superuser or self.request.user.is_staff
 
     def post(self, request, pk, *args, **kwargs):
         user_toggle = get_object_or_404(User, pk=pk)

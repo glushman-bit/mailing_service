@@ -1,8 +1,8 @@
-from .base_setup import BaseDataTest
 from django.core.cache import cache
 from django.urls import reverse
 
 from ..models import Message
+from .base_setup import BaseDataTest
 
 
 class MessageTest(BaseDataTest):
@@ -18,9 +18,7 @@ class MessageTest(BaseDataTest):
 
         self.client.force_login(self.user1)
 
-        response = self.client.get(
-            reverse("mailing_service:messages_list")
-        )
+        response = self.client.get(reverse("mailing_service:messages_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -34,9 +32,7 @@ class MessageTest(BaseDataTest):
 
         self.client.force_login(self.manager)
 
-        response = self.client.get(
-            reverse("mailing_service:messages_list")
-        )
+        response = self.client.get(reverse("mailing_service:messages_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -178,8 +174,6 @@ class MessageTest(BaseDataTest):
     def test_anonymous_user_cannot_create_message(self):
         """Неавторизованный пользователь не может создать сообщение."""
 
-        response = self.client.get(
-            reverse("mailing_service:message_create")
-        )
+        response = self.client.get(reverse("mailing_service:message_create"))
 
         self.assertEqual(response.status_code, 302)

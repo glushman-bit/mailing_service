@@ -1,6 +1,7 @@
-from .base_setup import BaseDataTest
 from django.core.cache import cache
 from django.urls import reverse
+
+from .base_setup import BaseDataTest
 
 
 class RecipientTest(BaseDataTest):
@@ -16,9 +17,7 @@ class RecipientTest(BaseDataTest):
 
         self.client.force_login(self.user1)
 
-        response = self.client.get(
-            reverse("mailing_service:recipients_list")
-        )
+        response = self.client.get(reverse("mailing_service:recipients_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -27,27 +26,19 @@ class RecipientTest(BaseDataTest):
         self.assertIn(self.recipient1, recipients)
         self.assertNotIn(self.recipient2, recipients)
 
-
     def test_user_can_update_delete_own_recipients(self):
         """Тест: пользователь может изменять и удалять своих получателей."""
 
         self.client.force_login(self.user1)
         response = self.client.post(
-            reverse(
-                "mailing_service:recipient_update",
-                kwargs={"pk": self.recipient1.id}
-            ),{
+            reverse("mailing_service:recipient_update", kwargs={"pk": self.recipient1.id}),
+            {
                 "email": "updated@test.com",
                 "full_name": "Пётр Петров",
                 "comment": "Новый комментарий",
-            }
+            },
         )
-        response_del = self.client.get(
-            reverse(
-                "mailing_service:recipient_delete",
-                args=[self.recipient1.id]
-            )
-        )
+        response_del = self.client.get(reverse("mailing_service:recipient_delete", args=[self.recipient1.id]))
 
         self.assertRedirects(response, reverse("mailing_service:recipients_list"))
 
@@ -63,14 +54,12 @@ class RecipientTest(BaseDataTest):
 
         self.client.force_login(self.user1)
         response = self.client.post(
-            reverse(
-                "mailing_service:recipient_update",
-                kwargs={"pk": self.recipient2.id}
-            ),{
+            reverse("mailing_service:recipient_update", kwargs={"pk": self.recipient2.id}),
+            {
                 "email": "hacked@test.com",
                 "full_name": "Изменён",
                 "comment": "Изменено",
-            }
+            },
         )
 
         self.assertEqual(response.status_code, 404)
@@ -88,9 +77,7 @@ class RecipientTest(BaseDataTest):
         self.user1.save(update_fields=["is_staff"])
 
         self.client.force_login(self.user1)
-        response = self.client.get(
-            reverse("mailing_service:recipients_list")
-        )
+        response = self.client.get(reverse("mailing_service:recipients_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -110,12 +97,7 @@ class RecipientTest(BaseDataTest):
                 args=[self.recipient1.pk],
             )
         )
-        response_del = self.client.get(
-            reverse(
-                "mailing_service:recipient_delete",
-                args=[self.recipient1.pk]
-            )
-        )
+        response_del = self.client.get(reverse("mailing_service:recipient_delete", args=[self.recipient1.pk]))
 
         self.assertEqual(response_upd.status_code, 404)
         self.assertEqual(response_del.status_code, 404)

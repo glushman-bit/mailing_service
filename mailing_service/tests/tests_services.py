@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from config import settings
 from mailing_service.models import MailingAttempt
-from mailing_service.services import start_mailing, get_cache
+from mailing_service.services import get_cache, start_mailing
 from mailing_service.tests.base_setup import BaseDataTest
 from users.models import User
 
@@ -111,9 +111,7 @@ class StartMailingTest(BaseDataTest):
             300,
         )
 
-        with patch(
-            "mailing_service.services.User.objects.filter"
-        ) as mock_filter:
+        with patch("mailing_service.services.User.objects.filter") as mock_filter:
             result = get_cache()
 
         self.assertEqual(result, cached_users)

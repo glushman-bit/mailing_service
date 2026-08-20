@@ -9,9 +9,7 @@ class MainPageViewTest(BaseDataTest):
     def test_anonymous_user_sees_empty_statistics(self):
         """Неавторизованный пользователь получает нулевую статистику."""
 
-        response = self.client.get(
-            reverse("mailing_service:main_page")
-        )
+        response = self.client.get(reverse("mailing_service:main_page"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -30,9 +28,7 @@ class MainPageViewTest(BaseDataTest):
 
         self.client.force_login(self.user1)
 
-        response = self.client.get(
-            reverse("mailing_service:main_page")
-        )
+        response = self.client.get(reverse("mailing_service:main_page"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -55,9 +51,7 @@ class MainPageViewTest(BaseDataTest):
 
         self.client.force_login(self.manager)
 
-        response = self.client.get(
-            reverse("mailing_service:main_page")
-        )
+        response = self.client.get(reverse("mailing_service:main_page"))
 
         self.assertEqual(response.status_code, 200)
 

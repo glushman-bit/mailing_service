@@ -1,4 +1,5 @@
 from users.models import User
+
 from .base_setup import UserTest
 
 

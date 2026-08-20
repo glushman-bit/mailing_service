@@ -36,7 +36,6 @@ class SendMailTest(BaseDataTest):
 
         mock_start_mailing.assert_called_once_with(self.mailing1)
 
-
     @patch("mailing_service.views.start_mailing")
     def test_user_cannot_start_other_user_mailing(self, mock_start_mailing):
         """Пользователь не может запустить чужую рассылку."""
@@ -54,7 +53,6 @@ class SendMailTest(BaseDataTest):
 
         mock_start_mailing.assert_not_called()
 
-
     @patch("mailing_service.views.start_mailing")
     def test_manager_cannot_start_other_user_mailing(self, mock_start_mailing):
         """Менеджер не может запускать чужие рассылки."""
@@ -71,7 +69,6 @@ class SendMailTest(BaseDataTest):
         self.assertEqual(response.status_code, 404)
 
         mock_start_mailing.assert_not_called()
-
 
     @patch("mailing_service.views.start_mailing")
     def test_superuser_can_start_any_mailing(self, mock_start_mailing):
@@ -94,4 +91,3 @@ class SendMailTest(BaseDataTest):
         )
 
         mock_start_mailing.assert_called_once_with(self.mailing2)
-

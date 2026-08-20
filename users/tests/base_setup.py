@@ -1,7 +1,7 @@
+from django.contrib.auth.models import Group
 from django.test import TestCase
+
 from users.models import User
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth.models import Group, Permission
 
 
 class UserTest(TestCase):
@@ -28,6 +28,3 @@ class UserTest(TestCase):
         self.admin.is_superuser = True
         self.admin.is_staff = True
         self.admin.save()
-
-
-

@@ -1,12 +1,11 @@
 from datetime import timedelta
 
-from django.utils import timezone
-
-from .base_setup import BaseDataTest
 from django.core.cache import cache
 from django.urls import reverse
+from django.utils import timezone
 
 from ..models import Mailing
+from .base_setup import BaseDataTest
 
 
 class MailingTest(BaseDataTest):
@@ -22,9 +21,7 @@ class MailingTest(BaseDataTest):
 
         self.client.force_login(self.user1)
 
-        response = self.client.get(
-            reverse("mailing_service:mailings_list")
-        )
+        response = self.client.get(reverse("mailing_service:mailings_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -38,9 +35,7 @@ class MailingTest(BaseDataTest):
 
         self.client.force_login(self.manager)
 
-        response = self.client.get(
-            reverse("mailing_service:mailings_list")
-        )
+        response = self.client.get(reverse("mailing_service:mailings_list"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -124,9 +119,7 @@ class MailingTest(BaseDataTest):
 
         self.client.force_login(self.user1)
 
-        response = self.client.get(
-            reverse("mailing_service:mailing_create")
-        )
+        response = self.client.get(reverse("mailing_service:mailing_create"))
 
         self.assertEqual(response.status_code, 200)
 
@@ -135,11 +128,23 @@ class MailingTest(BaseDataTest):
         message_queryset = form.fields["message"].queryset
         recipient_queryset = form.fields["recipients"].queryset
 
-        self.assertIn(self.message1, message_queryset,)
-        self.assertNotIn(self.message2, message_queryset,)
+        self.assertIn(
+            self.message1,
+            message_queryset,
+        )
+        self.assertNotIn(
+            self.message2,
+            message_queryset,
+        )
 
-        self.assertIn(self.recipient1, recipient_queryset,)
-        self.assertNotIn(self.recipient2, recipient_queryset,)
+        self.assertIn(
+            self.recipient1,
+            recipient_queryset,
+        )
+        self.assertNotIn(
+            self.recipient2,
+            recipient_queryset,
+        )
 
     def test_user_cannot_create_mailing_with_other_user_data(self):
         """Пользователь не может создать рассылку с чужими данными."""
@@ -163,10 +168,10 @@ class MailingTest(BaseDataTest):
         )
         self.assertFalse(
             Mailing.objects.filter(
-                owner=self.user1, message=self.message2,
+                owner=self.user1,
+                message=self.message2,
             ).exists()
         )
-
 
     def test_anonymous_user_cannot_create_mailing(self):
         """Анонимный пользователь не может создать рассылку."""
@@ -200,7 +205,10 @@ class MailingTest(BaseDataTest):
 
         self.mailing1.refresh_from_db()
 
-        self.assertEqual(self.mailing1.message, self.message1,)
+        self.assertEqual(
+            self.mailing1.message,
+            self.message1,
+        )
 
     def test_user_cannot_update_other_user_mailing(self):
         """Пользователь не может редактировать чужую рассылку."""

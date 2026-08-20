@@ -472,12 +472,8 @@ class MailingUpdateView(UpdateView):
         form = super().get_form(form_class)
 
         if not self.request.user.is_superuser:
-            form.fields["message"].queryset = Message.objects.filter(
-                owner=self.request.user
-            )
-            form.fields["recipients"].queryset = Recipient.objects.filter(
-                owner=self.request.user
-            )
+            form.fields["message"].queryset = Message.objects.filter(owner=self.request.user)
+            form.fields["recipients"].queryset = Recipient.objects.filter(owner=self.request.user)
 
         return form
 
@@ -538,9 +534,7 @@ class MailingDistributionView(LoginRequiredMixin, View):
             and not user.is_superuser
             and not user.has_perms("mailing_service.can_disable_distribution")
         ):
-            return HttpResponseForbidden(
-                "У вас нет доступа для отключения рассылки."
-            )
+            return HttpResponseForbidden("У вас нет доступа для отключения рассылки.")
 
         mailing.end_time = timezone.now()
         messages.success(request, "Рассылка успешно отключена!")

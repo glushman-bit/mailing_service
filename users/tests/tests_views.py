@@ -1,9 +1,8 @@
 from django.core import mail
-
-from users.tests.base_setup import UserTest
 from django.urls import reverse
-from users.models import User
 
+from users.models import User
+from users.tests.base_setup import UserTest
 
 
 class UserViewsTests(UserTest):
@@ -43,7 +42,7 @@ class UserViewsTests(UserTest):
 
     def test_user_sees_own_profile_and_cannot_another(self):
         """Тест: пользователь может просмотреть свой профиль
-            и не может чужой."""
+        и не может чужой."""
 
         self.client.force_login(self.user1)
         response = self.client.get(reverse('users:profile'))
@@ -62,7 +61,7 @@ class UserViewsTests(UserTest):
                 "email": "new@test.ru",
                 "phone_number": "+79991234567",
                 "country": "RU",
-            }
+            },
         )
 
         self.assertEqual(response.status_code, 302)
@@ -75,9 +74,7 @@ class UserViewsTests(UserTest):
         """Тест: персонал может заблокировать пользователя."""
 
         self.client.force_login(self.manager)
-        response = self.client.post(
-            reverse("users:toggle_user_active", kwargs={"pk": self.user1.pk})
-        )
+        response = self.client.post(reverse("users:toggle_user_active", kwargs={"pk": self.user1.pk}))
 
         self.assertEqual(response.status_code, 302)
 
@@ -92,9 +89,7 @@ class UserViewsTests(UserTest):
         self.user2.save()
 
         self.client.force_login(self.manager)
-        response = self.client.post(
-            reverse("users:toggle_user_active", kwargs={"pk": self.user2.pk})
-        )
+        response = self.client.post(reverse("users:toggle_user_active", kwargs={"pk": self.user2.pk}))
 
         self.assertEqual(response.status_code, 302)
 
