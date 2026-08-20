@@ -42,6 +42,15 @@ jobs:
           --health-timeout=5s
           --health-retries=5
 
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >- 
+          --health-cmd="redis-cli ping" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
     env:
       SECRET_KEY: test-secret-key
       DEBUG: False
@@ -50,6 +59,7 @@ jobs:
       POSTGRES_PASSWORD: postgres
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
+      CACHE_LOCATION: redis://localhost:6379/1
 
     steps:
       - name: Check out code
