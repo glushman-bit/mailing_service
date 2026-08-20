@@ -27,7 +27,7 @@ from mailing_service.views import (
 app_name = MailingServiceConfig.name
 
 urlpatterns = [
-    path('', cache_page(300)(MainPageView.as_view()), name='main_page'),
+    path('', MainPageView.as_view(), name='main_page'),
     # Ссылки на страницы получателей рассылок
     path('recipients/', RecipientListView.as_view(), name='recipients_list'),
     path('recipient/<int:pk>/', cache_page(600)(RecipientDetailView.as_view()), name='recipient_detail'),

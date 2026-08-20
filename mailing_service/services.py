@@ -1,10 +1,13 @@
 import uuid
 
 from django.conf import settings
+from django.core.cache import cache
 from django.core.mail import send_mail
-from django.utils import cache, timezone
+from django.utils import timezone
+
 
 from mailing_service.models import MailingAttempt
+from users.models import User
 
 
 def start_mailing(mailing):
