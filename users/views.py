@@ -2,7 +2,6 @@ import secrets
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.models import PermissionsMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect
@@ -87,12 +86,15 @@ class UserUpdateView(UpdateView):
         return self.request.user
 
 
-class ToggleUserActiveView(View):
+class ToggleUserActiveView(LoginRequiredMixin, UserPassesTestMixin, View):
     """Контроллер для блокировки/разблокировки пользователей менеджером"""
 
     def test_func(self):
         """Разрешение действия только для суперпользователя или персонала"""
-        return self.request.user.is_superuser or self.request.user.is_staff
+        return (
+                self.request.user.is_superuser
+                or self.request.user.is_staff
+        )
 
     def post(self, request, pk, *args, **kwargs):
         user_toggle = get_object_or_404(User, pk=pk)

@@ -21,11 +21,6 @@ class MainPageView(TemplateView):
 
     template_name = "mailing_service/main_page.html"
 
-    def get_queryset(self):
-        if self.request.user.is_authenticated:
-            return Mailing.objects.filter(owner=self.request.user)
-        return Mailing.objects.none()
-
     def get_context_data(self, **kwargs):
         """Добавление данных на главную страницу"""
         context = super().get_context_data(**kwargs)
@@ -109,9 +104,9 @@ class RecipientListView(ListView):
 
         if queryset is None:
             if user.is_superuser or user.is_staff:
-                queryset = Recipient.objects.all().order_by("owner")
+                queryset = Recipient.objects.all().order_by("owner", "created_at")
             else:
-                queryset = Recipient.objects.filter(owner=user)
+                queryset = Recipient.objects.filter(owner=user).order_by("created_at")
 
             cache.set(cache_key, queryset, 300)
 
@@ -175,12 +170,12 @@ class RecipientUpdateView(LoginRequiredMixin, UpdateView):
         "object_type": "Recipient",
     }
 
-    def get_request(self):
+    def get_queryset(self):
         """Ограничение доступа на уровне queryset."""
 
         user = self.request.user
 
-        if user.is_superuser or user.is_staff:
+        if user.is_superuser:
             return Recipient.objects.all()
 
         return Recipient.objects.filter(owner=user)
@@ -213,7 +208,7 @@ class RecipientDeleteView(LoginRequiredMixin, DeleteView):
 
         user = self.request.user
 
-        if user.is_superuser or user.is_staff:
+        if user.is_superuser:
             return Recipient.objects.all()
 
         return Recipient.objects.filter(owner=user)
@@ -325,7 +320,7 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
 
         user = self.request.user
 
-        if user.is_superuser or user.is_staff:
+        if user.is_superuser:
             return Message.objects.all()
 
         return Message.objects.filter(owner=user)
@@ -358,7 +353,7 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
 
         user = self.request.user
 
-        if user.is_superuser or user.is_staff:
+        if user.is_superuser:
             return Message.objects.all()
 
         return Message.objects.filter(owner=user)
@@ -416,10 +411,10 @@ class MailingDetailView(DetailView):
 
         return Mailing.objects.filter(owner=user)
 
-    def get_object(self, queryset=None):
+    def get_object(self, queryset=None) -> Mailing:
         """Обновление статуса в детализации рассылки"""
 
-        obj = super().get_object(queryset)
+        obj: Mailing = super().get_object(queryset)
         obj.update_status()
         return obj
 
@@ -468,10 +463,23 @@ class MailingUpdateView(UpdateView):
 
         user = self.request.user
 
-        if user.is_superuser or user.is_staff:
+        if user.is_superuser:
             return Mailing.objects.all()
 
         return Mailing.objects.filter(owner=user)
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+
+        if not self.request.user.is_superuser:
+            form.fields["message"].queryset = Message.objects.filter(
+                owner=self.request.user
+            )
+            form.fields["recipients"].queryset = Recipient.objects.filter(
+                owner=self.request.user
+            )
+
+        return form
 
 
 class MailingDeleteView(LoginRequiredMixin, DeleteView):
@@ -488,19 +496,22 @@ class MailingDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         """Ограничение доступа на уровне queryset."""
 
-        user = self.request.user
-
-        if user.is_superuser or user.is_staff:
-            return Mailing.objects.all()
-
-        return Mailing.objects.filter(owner=user)
+        return Mailing.objects.filter(owner=self.request.user)
 
 
-class MailingStartView(View):
+class MailingStartView(LoginRequiredMixin, View):
     """Класс запуска рассылки через POST-запрос и вывода ошибок"""
 
     def post(self, request, pk):
-        mailing = get_object_or_404(Mailing, pk=pk)
+        """Запуск рассылки в зависимости от пользователя."""
+
+        user = self.request.user
+
+        if user.is_superuser:
+            mailing = get_object_or_404(Mailing, pk=pk)
+
+        else:
+            mailing = get_object_or_404(Mailing, pk=pk, owner=user)
 
         error_message = start_mailing(mailing)
 
@@ -517,15 +528,19 @@ class MailingDistributionView(LoginRequiredMixin, View):
     """Класс отключения рассылки"""
 
     def post(self, request, pk):
+        """Проверка прав и отключение рассылки."""
+
         mailing = get_object_or_404(Mailing, pk=pk)
         user = request.user
 
-        is_owner = mailing.owner == user
-        is_superuser = user.is_superuser
-        has_perms = user.has_perm("mailing.can_disable_distribution")
-
-        if not (is_owner or is_superuser or has_perms):
-            return HttpResponseForbidden("У вас не доступа для отключения рассылки.")
+        if (
+            mailing.owner != user
+            and not user.is_superuser
+            and not user.has_perms("mailing_service.can_disable_distribution")
+        ):
+            return HttpResponseForbidden(
+                "У вас нет доступа для отключения рассылки."
+            )
 
         mailing.end_time = timezone.now()
         messages.success(request, "Рассылка успешно отключена!")
